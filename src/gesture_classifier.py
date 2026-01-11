@@ -35,26 +35,31 @@ class GestureClassifier:
         return False
 
     def classify(self, landmarks):
+        """Classify a gesture based on landmark data.
+        
+        Args:
+            landmarks: Numpy array of landmark coordinates
+            
+        Returns:
+            tuple: (label, confidence) - best matching label and confidence score
+        """
         if not self.templates:
             return "No Templates", 0.0
 
-        # Ensure landmarks are the correct shape (126 for 2 hands)
-        if landmarks.shape[0] == 63:
-            # Old single-hand format, pad it
-            landmarks = np.concatenate([landmarks, np.zeros(63)])
-
+        # Normalize incoming landmarks to 126 dimensions (2 hands x 21 points x 3 coords)
+        landmarks = self._normalize_shape(landmarks)
+        
         min_dist = float('inf')
         best_label = "Unknown"
 
-        # Simple Euclidean distance classifier (can be replaced with KNN or ANN)
+        # Compare with all template examples
         for label, examples in self.templates.items():
             for example in examples:
-                # Ensure example is also correct shape
-                if example.shape[0] == 63:
-                    example = np.concatenate([example, np.zeros(63)])
+                # Normalize template to same shape
+                example_norm = self._normalize_shape(example)
                 
-                # Now both should be same shape (126)
-                dist = np.linalg.norm(landmarks - example)
+                # Calculate distance
+                dist = np.linalg.norm(landmarks - example_norm)
                 if dist < min_dist:
                     min_dist = dist
                     best_label = label
@@ -62,6 +67,34 @@ class GestureClassifier:
         # Normalize distance into a confidence score (heuristic)
         confidence = max(0, 1 - (min_dist / 2.0)) 
         return best_label, confidence
+    
+    def _normalize_shape(self, landmarks):
+        """Ensure landmarks are always 126 dimensions (2 hands).
+        
+        Args:
+            landmarks: Input landmarks of any shape
+            
+        Returns:
+            np.ndarray: Normalized to 126 dimensions
+        """
+        shape = landmarks.shape[0]
+        
+        # Already correct shape
+        if shape == 126:
+            return landmarks
+        
+        # Single hand (63 dims) - pad with zeros for second hand
+        elif shape == 63:
+            return np.concatenate([landmarks, np.zeros(63)])
+        
+        # More than 126 dims - take only first 126
+        elif shape > 126:
+            return landmarks[:126]
+        
+        # Less than 63 dims - pad to 126
+        else:
+            padding = np.zeros(126 - shape)
+            return np.concatenate([landmarks, padding])
 
 def normalize_landmarks(landmarks):
     """Normalize landmarks to be scale and position invariant for both hands."""
@@ -91,4 +124,3 @@ def normalize_landmarks(landmarks):
         normalized_data.append(hand)
             
     return np.array(normalized_data).flatten()
-#  Riverside 
