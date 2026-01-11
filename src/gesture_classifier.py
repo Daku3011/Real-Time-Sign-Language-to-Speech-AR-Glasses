@@ -38,12 +38,22 @@ class GestureClassifier:
         if not self.templates:
             return "No Templates", 0.0
 
+        # Ensure landmarks are the correct shape (126 for 2 hands)
+        if landmarks.shape[0] == 63:
+            # Old single-hand format, pad it
+            landmarks = np.concatenate([landmarks, np.zeros(63)])
+
         min_dist = float('inf')
         best_label = "Unknown"
 
         # Simple Euclidean distance classifier (can be replaced with KNN or ANN)
         for label, examples in self.templates.items():
             for example in examples:
+                # Ensure example is also correct shape
+                if example.shape[0] == 63:
+                    example = np.concatenate([example, np.zeros(63)])
+                
+                # Now both should be same shape (126)
                 dist = np.linalg.norm(landmarks - example)
                 if dist < min_dist:
                     min_dist = dist
