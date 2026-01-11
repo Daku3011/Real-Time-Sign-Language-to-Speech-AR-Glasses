@@ -65,3 +65,4 @@ htmlcov/
 .mypy_cache/
 .dmypy.json
 dmypy.json
+src/__pycache__/tts_engine.cpython-310.pyc

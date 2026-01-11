@@ -76,7 +76,7 @@ def main():
     cap = cv2.VideoCapture(0)
     tracker = HandTracker() 
     classifier = GestureClassifier()
-    tts = TTSEngine()
+    tts = TTSEngine(use_indian_accent=True)  # Enable Indian accent
     ocr = OCREngine()
     
     mode = "SIGNING" # SIGNING or READING

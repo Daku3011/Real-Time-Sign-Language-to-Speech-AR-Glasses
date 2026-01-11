@@ -40,6 +40,7 @@ COUNTDOWN_DURATION = 3  # Countdown before recording (seconds)
 TTS_RATE = 150  # Speech rate (words per minute)
 TTS_VOLUME = 0.9  # Volume level (0.0 to 1.0)
 TTS_COOLDOWN = 4.0  # Minimum seconds between repeating same phrase
+TTS_USE_INDIAN_ACCENT = True  # Prefer Indian/Hindi voice if available
 
 # ============================================================================
 # OCR CONFIGURATION
