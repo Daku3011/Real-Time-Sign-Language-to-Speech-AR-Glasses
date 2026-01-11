@@ -1,0 +1,17 @@
+# SSIP - Real-Time Sign Language to Speech AR Glasses
+# Python Dependencies
+
+# Computer Vision & Image Processing
+opencv-python>=4.8.0
+mediapipe>=0.10.0
+numpy>=1.24.0
+
+# Text-to-Speech
+pyttsx3>=2.90
+
+# Optical Character Recognition
+pytesseract>=0.3.10
+
+# Optional: For advanced features
+# tensorflow-lite>=2.14.0  # If using TensorFlow Lite models
+# pillow>=10.0.0  # Additional image processing
