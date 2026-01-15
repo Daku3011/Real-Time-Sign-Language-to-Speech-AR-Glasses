@@ -145,53 +145,42 @@ const ProfessionalPresentation = () => {
           name: 'Dwarkesh Ramani',
           role: 'Project Lead & AI/ML Engineer',
           qualification: 'B.Tech Computer Engineering',
-          skills: 'TensorFlow, MediaPipe, Computer Vision, Python',
-          experience: 'Led 5+ ML projects, expertise in real-time gesture recognition'
+          skills: 'TensorFlow, MediaPipe, Computer Vision, Python'
         },
         {
-          name: '[Team Member 2]',
+          name: 'Jenil Gajera',
           role: 'Hardware & Embedded Systems',
           qualification: 'B.Tech Electronics Engineering',
-          skills: 'Raspberry Pi, IoT, Circuit Design, PCB Development',
-          experience: 'Built 10+ embedded systems projects, maker community leader'
+          skills: 'Raspberry Pi, IoT, Circuit Design, PCB Development'
         },
         {
-          name: '[Team Member 3]',
+          name: 'Jenny Patel',
           role: 'Software Development & Integration',
-          qualification: 'B.Tech IT/CS',
-          skills: 'React, Python, API Development, System Architecture',
-          experience: 'Full-stack developer, 3+ production applications'
+          qualification: 'B.Tech Computer Science',
+          skills: 'React, Python, API Development, System Architecture'
         },
         {
-          name: '[Team Member 4]',
+          name: 'Drashant Mevada',
           role: 'Design & User Research',
-          qualification: 'B.Tech/B.Des',
-          skills: '3D Modeling, CAD, UX Research, Prototyping',
-          experience: 'Designed assistive devices, user-centered approach'
+          qualification: 'B.Tech Computer Engineering',
+          skills: '3D Modeling, CAD, UX Research, Prototyping'
         },
         {
-          name: '[Team Member 5]',
+          name: 'Akifa',
           role: 'Business Development & Strategy',
-          qualification: 'B.Tech/MBA',
-          skills: 'Market Research, Partnership Development, Financial Modeling',
-          experience: 'Led business strategy for 3+ startups, govt scheme expertise'
+          qualification: 'B.Tech Computer Engineering',
+          skills: 'Market Research, Partnership Development, Financial Modeling'
         }
       ],
       advisors: [
         {
-          name: '[Faculty Advisor Name]',
-          role: 'Technical Mentor - AI/ML',
-          credentials: 'PhD in Computer Vision, 15+ years research',
-          affiliation: 'Department Professor'
-        },
-        {
-          name: 'Gujarat Deaf Association',
-          role: 'Community Liaison',
-          credentials: 'ISL experts, user advocacy',
-          affiliation: 'Direct community feedback and testing'
+          name: 'Prof. Pariza Kamboze',
+          role: 'Faculty Mentor',
+          credentials: 'Assistant Professor, Computer Engineering Department',
+          affiliation: 'Project Guide & Technical Advisor'
         }
       ],
-      strength: 'Cross-functional team with deep technical skills + direct community engagement from day one'
+      strength: 'Passionate student team with multidisciplinary skills working on real-world assistive technology'
     },
 
     // Slide 9: The Ask
@@ -359,8 +348,33 @@ const ProfessionalPresentation = () => {
             <div className="max-w-7xl mx-auto">
               <h2 className="text-6xl font-black mb-12 text-gray-900">{slide.title}</h2>
               
-              {/* Team Members */}
-              <div className="grid grid-cols-2 gap-6 mb-12">
+              {/* Faculty Mentor - Show First */}
+              <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-8 rounded-2xl border-2 border-purple-200 mb-12 shadow-xl">
+                <h3 className="text-3xl font-black mb-6 text-purple-900">Faculty Mentor</h3>
+                {slide.advisors.map((advisor, i) => (
+                  <div key={i} className="flex items-center gap-6 bg-white p-6 rounded-xl">
+                    {/* Faculty Photo */}
+                    <div className="flex-shrink-0">
+                      <img 
+                        src="/faculty-photo.webp" 
+                        alt={advisor.name}
+                        className="w-40 h-40 rounded-full object-cover border-4 border-purple-300 shadow-lg"
+                      />
+                    </div>
+                    {/* Faculty Info */}
+                    <div className="flex-1">
+                      <div className="text-3xl font-black mb-2 text-purple-900">{advisor.name}</div>
+                      <div className="text-xl font-bold text-purple-600 mb-2">{advisor.role}</div>
+                      <div className="text-lg text-gray-700 mb-1">{advisor.credentials}</div>
+                      <div className="text-md text-gray-600">{advisor.affiliation}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Student Team Members - Show After Mentor */}
+              <h3 className="text-3xl font-black mb-6 text-blue-900">Student Team</h3>
+              <div className="grid grid-cols-2 gap-6 mb-8">
                 {slide.members.map((member, i) => (
                   <div key={i} className="bg-gradient-to-br from-blue-50 to-white p-6 rounded-2xl border-2 border-blue-200 shadow-lg">
                     <h3 className="text-2xl font-black mb-2 text-blue-900">{member.name}</h3>
@@ -368,24 +382,9 @@ const ProfessionalPresentation = () => {
                     <div className="space-y-2 text-sm">
                       <div><strong>Education:</strong> {member.qualification}</div>
                       <div><strong>Skills:</strong> {member.skills}</div>
-                      <div><strong>Experience:</strong> {member.experience}</div>
                     </div>
                   </div>
                 ))}
-              </div>
-
-              {/* Advisors */}
-              <div className="bg-purple-50 p-6 rounded-2xl border-2 border-purple-200 mb-8">
-                <h3 className="text-2xl font-black mb-4 text-purple-900">Advisors & Mentors</h3>
-                <div className="grid grid-cols-2 gap-4">
-                  {slide.advisors.map((advisor, i) => (
-                    <div key={i} className="bg-white p-4 rounded-xl">
-                      <div className="font-bold text-lg">{advisor.name}</div>
-                      <div className="text-purple-600">{advisor.role}</div>
-                      <div className="text-sm text-gray-600">{advisor.credentials}</div>
-                    </div>
-                  ))}
-                </div>
               </div>
 
               {/* Team Strength */}
