@@ -18,26 +18,26 @@ const ProfessionalPresentation = () => {
     {
       type: 'introduction',
       title: 'Introduction: Who We Are',
-      context: 'A team of engineering students united by a mission to solve India\'s most critical accessibility challenge',
+      context: 'A team of engineering students passionate about solving India\'s most critical accessibility challenge',
       background: [
         {
           aspect: 'Academic Foundation',
-          detail: 'Computer Science & Electronics students with expertise in AI/ML, IoT, and embedded systems'
+          detail: 'Computer Engineering students eager to apply AI/ML, IoT, and embedded systems knowledge to real-world problems'
         },
         {
-          aspect: 'Practical Experience',
-          detail: '3+ years of hands-on projects in computer vision, speech processing, and hardware prototyping'
+          aspect: 'Learning & Growth',
+          detail: 'Building our first major assistive technology project, combining coursework with hands-on innovation'
         },
         {
-          aspect: 'Community Connection',
-          detail: 'Direct engagement with Gujarat Deaf Association to understand real user needs and pain points'
+          aspect: 'Future Community Engagement',
+          detail: 'Planning to partner with Gujarat Deaf Association for user feedback, testing, and real-world validation'
         },
         {
           aspect: 'Why This Problem?',
-          detail: 'Witnessed firsthand how 7 million Indians struggle daily without a voice in a hearing world'
+          detail: 'Motivated to create technology that transforms lives - giving voice to 7 million Indians who deserve to be heard'
         }
       ],
-      mission: 'To eliminate communication barriers for India\'s deaf community through affordable, accessible technology'
+      mission: 'To learn, build, and deliver affordable assistive technology that eliminates communication barriers for India\'s deaf community'
     },
 
     // Slide 3: Problem Statement
@@ -150,7 +150,7 @@ const ProfessionalPresentation = () => {
         {
           name: 'Jenil Gajera',
           role: 'Hardware & Embedded Systems',
-          qualification: 'B.Tech Electronics Engineering',
+          qualification: 'B.Tech Computer Engineering',
           skills: 'Raspberry Pi, IoT, Circuit Design, PCB Development'
         },
         {
@@ -176,7 +176,7 @@ const ProfessionalPresentation = () => {
         {
           name: 'Prof. Pariza Kamboze',
           role: 'Faculty Mentor',
-          credentials: 'Assistant Professor, Computer Engineering Department',
+          credentials: 'Professor, Computer Engineering Department',
           affiliation: 'Project Guide & Technical Advisor'
         }
       ],
@@ -348,7 +348,7 @@ const ProfessionalPresentation = () => {
             <div className="max-w-7xl mx-auto">
               <h2 className="text-6xl font-black mb-12 text-gray-900">{slide.title}</h2>
               
-              {/* Faculty Mentor - Show First */}
+              {/* Faculty Mentor - Show First with Photo */}
               <div className="bg-gradient-to-r from-purple-50 to-pink-50 p-8 rounded-2xl border-2 border-purple-200 mb-12 shadow-xl">
                 <h3 className="text-3xl font-black mb-6 text-purple-900">Faculty Mentor</h3>
                 {slide.advisors.map((advisor, i) => (
@@ -372,7 +372,7 @@ const ProfessionalPresentation = () => {
                 ))}
               </div>
 
-              {/* Student Team Members - Show After Mentor */}
+              {/* Student Team Members - Below Mentor */}
               <h3 className="text-3xl font-black mb-6 text-blue-900">Student Team</h3>
               <div className="grid grid-cols-2 gap-6 mb-8">
                 {slide.members.map((member, i) => (
@@ -504,46 +504,42 @@ const ProfessionalPresentation = () => {
         return (
           <div className="bg-white h-full p-12 overflow-auto">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-6xl font-black mb-12 text-gray-900">{slide.title}</h2>
+              <h2 className="text-6xl font-black mb-8 text-gray-900">{slide.title}</h2>
               
-              {/* TAM SAM SOM Visual */}
-              <div className="grid grid-cols-3 gap-8 mb-12">
-                <div className="text-center">
-                  <div className="w-full h-48 bg-blue-600 rounded-3xl flex items-center justify-center mb-4">
-                    <div className="text-white">
-                      <div className="text-5xl font-black mb-2">{slide.marketData.TAM.value}</div>
-                      <div className="text-lg">TAM</div>
-                    </div>
-                  </div>
-                  <div className="text-gray-700">{slide.marketData.TAM.label}</div>
+              {/* TAM SAM SOM Funnel Visual */}
+              <div className="flex flex-col items-center justify-center mb-12 space-y-4">
+                {/* TAM */}
+                <div className="w-full bg-gradient-to-r from-blue-600 to-blue-500 rounded-3xl p-6 text-white text-center shadow-xl relative z-10 transition-transform hover:scale-[1.02]">
+                   <div className="text-6xl font-black mb-1">{slide.marketData.TAM.value}</div>
+                   <div className="text-2xl font-bold mb-1">TAM</div>
+                   <div className="text-sm uppercase tracking-widest opacity-90 mb-2 border-b border-blue-400 inline-block pb-1">Total Addressable Market</div>
+                   <div><span className="text-lg font-medium bg-blue-800 bg-opacity-30 px-6 py-2 rounded-full inline-block mt-2">{slide.marketData.TAM.label}</span></div>
                 </div>
-                <div className="text-center">
-                  <div className="w-full h-40 bg-green-600 rounded-3xl flex items-center justify-center mb-4 mt-8">
-                    <div className="text-white">
-                      <div className="text-5xl font-black mb-2">{slide.marketData.SAM.value}</div>
-                      <div className="text-lg">SAM</div>
-                    </div>
-                  </div>
-                  <div className="text-gray-700">{slide.marketData.SAM.label}</div>
+
+                {/* SAM */}
+                <div className="w-[80%] bg-gradient-to-r from-green-600 to-green-500 rounded-3xl p-6 text-white text-center shadow-xl relative z-20 transition-transform hover:scale-[1.02]">
+                   <div className="text-5xl font-black mb-1">{slide.marketData.SAM.value}</div>
+                   <div className="text-2xl font-bold mb-1">SAM</div>
+                   <div className="text-sm uppercase tracking-widest opacity-90 mb-2 border-b border-green-400 inline-block pb-1">Serviceable Available Market</div>
+                   <div><span className="text-lg font-medium bg-green-800 bg-opacity-30 px-6 py-2 rounded-full inline-block mt-2">{slide.marketData.SAM.label}</span></div>
                 </div>
-                <div className="text-center">
-                  <div className="w-full h-32 bg-orange-600 rounded-3xl flex items-center justify-center mb-4 mt-16">
-                    <div className="text-white">
-                      <div className="text-4xl font-black mb-2">{slide.marketData.SOM.value}</div>
-                      <div className="text-base">SOM</div>
-                    </div>
-                  </div>
-                  <div className="text-gray-700">{slide.marketData.SOM.label}</div>
+
+                 {/* SOM */}
+                <div className="w-[60%] bg-gradient-to-r from-orange-600 to-orange-500 rounded-3xl p-6 text-white text-center shadow-xl relative z-30 transition-transform hover:scale-[1.02]">
+                   <div className="text-5xl font-black mb-1">{slide.marketData.SOM.value}</div>
+                   <div className="text-2xl font-bold mb-1">SOM</div>
+                   <div className="text-sm uppercase tracking-widest opacity-90 mb-2 border-b border-orange-400 inline-block pb-1">Serviceable Obtainable Market</div>
+                   <div><span className="text-lg font-medium bg-orange-800 bg-opacity-30 px-6 py-2 rounded-full inline-block mt-2">{slide.marketData.SOM.label}</span></div>
                 </div>
               </div>
 
               {/* Key Highlights */}
               <div className="grid grid-cols-2 gap-6">
-                <div className="bg-red-50 border-l-8 border-red-600 p-6">
+                <div className="bg-red-50 border-l-8 border-red-600 p-6 rounded-r-xl shadow-sm">
                   <div className="text-sm uppercase tracking-widest text-red-600 font-bold mb-2">Market Gap</div>
                   <div className="text-3xl font-black text-gray-900">{slide.competitorGap}</div>
                 </div>
-                <div className="bg-green-50 border-l-8 border-green-600 p-6">
+                <div className="bg-green-50 border-l-8 border-green-600 p-6 rounded-r-xl shadow-sm">
                   <div className="text-sm uppercase tracking-widest text-green-600 font-bold mb-2">Government Support</div>
                   <div className="text-3xl font-black text-gray-900">{slide.govSupport}</div>
                 </div>
