@@ -174,7 +174,7 @@ const ProfessionalPresentation = () => {
       ],
       advisors: [
         {
-          name: 'Prof. Pariza Kamboze',
+          name: 'Prof. Pariza kamboj',
           role: 'Faculty Mentor',
           credentials: 'Professor, Computer Engineering Department',
           affiliation: 'Project Guide & Technical Advisor'
