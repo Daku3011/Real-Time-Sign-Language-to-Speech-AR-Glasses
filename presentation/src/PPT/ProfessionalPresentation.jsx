@@ -12,15 +12,14 @@ const ProfessionalPresentation = () => {
       subtitle: 'AR Glasses',
       tagline: 'Breaking Communication Barriers Through Innovation',
       team: 'Team Inno8',
-      submissionDate: '15th January 2026',
-      institution: 'SSIP Grant Application'
+      submissionDate: '15th January 2026'
     },
 
     // Slide 2: Introduction - Who We Are
     {
       type: 'introduction',
-      title: 'Introduction: Who We Are',
-      context: 'A team of engineering students passionate about solving India\'s most critical accessibility challenge',
+      title: 'Introduction',
+      context: 'A team of engineering students passionate about solving India\'s critical accessibility challenges',
       background: [
         {
           aspect: 'Academic Foundation',
@@ -236,21 +235,20 @@ const ProfessionalPresentation = () => {
         }
       ],
       resources: {
-        hardware: [
-          { item: 'Raspberry Pi Zero 2W', qty: 2, cost: '₹3,600', source: 'Robu.in' },
-          { item: 'Pi Camera v2', qty: 2, cost: '₹4,400', source: 'Robu.in' },
-          { item: 'Bone Conduction Transducer', qty: 2, cost: '₹1,700', source: 'Amazon' },
-          { item: '0.96" OLED Display', qty: 2, cost: '₹500', source: 'Sahara Darwaja' },
-          { item: 'LiPo Battery 2500mAh', qty: 2, cost: '₹900', source: 'Amazon' },
-          { item: 'TR-90 Optical Frame', qty: 2, cost: '₹1,200', source: 'Ghod Dod Road' }
+        milestones: [
+          { item: 'Patent Grant Filing', status: 'Priority', icon: '📜'},
+          { item: 'BIS Certification', status: 'Critical', icon: '✅'},
+          { item: 'User Testing (20+ trials)', status: 'Key', icon: '👥'},
+          { item: 'Gujarat Deaf Association Partnership', status: 'Strategic', icon: '🤝'},
+          { item: 'ADIP Scheme Empanelment', status: 'Goal', icon: '🏛️'},
+          { item: 'Manufacturing Partner Setup', status: 'Scale', icon: '🏭'}
         ],
-        tools: [
-          { item: 'Soldering Station 60W', cost: '₹600' },
-          { item: 'Digital Multimeter', cost: '₹600' },
-          { item: '3D Printing (all parts)', cost: '₹350' },
-          { item: 'Wiring & Connectors', cost: '₹800' }
-        ],
-        totalBudget: '₹22,755 (BEST Tier for 2 prototypes)'
+        totalBudget: '₹1,50,000 (Total SSIP Funding Request)'
+      },
+      vision: {
+        now: '8 months: Working prototypes tested by 20+ Gujarat deaf community members',
+        year3: '10,000 devices across India | ₹15 Cr revenue | 50,000 lives improved',
+        year5: '15M IPSL family served (India, Pakistan, Bangladesh, Nepal, Sri Lanka)'
       },
       deliverables: [
         'Patent application filed',
@@ -295,7 +293,7 @@ const ProfessionalPresentation = () => {
           skills: ['CAD', '3D Printing', 'Product Design']
         },
         {
-          name: 'Akifa Sheikh',
+          name: 'Akifa Shaikh',
           role: 'Business & Report',
           education: 'Computer Engineering',
           photo: '/team/akifa.webp',
@@ -308,7 +306,7 @@ const ProfessionalPresentation = () => {
           role: 'Faculty Mentor',
           credentials: 'Professor, Computer Engineering Department',
           affiliation: 'Project Guide & Technical Advisor', 
-          image: '/faculty-photo.webp'
+          image: '/mnt/Dwarkesh/SSIP/unnamed.webp'
         }
       ],
       teamStrength: '5 engineers with complementary skills covering AI, Hardware, UI, Design & Business'
@@ -317,15 +315,15 @@ const ProfessionalPresentation = () => {
      // Slide 9: The Ask
     {
       type: 'ask',
-      title: 'Funding Request: ₹83,000',
-      amount: '₹83,000',
+      title: 'Funding Request: ₹1,50,000',
+      amount: '₹1,50,000',
       equity: 'SSIP Grant Application',
       useOfFunds: [
-        { percent: 27, category: 'Hardware Prototypes', detail: 'RPi Zero 2W, Cameras, Displays (2 Units)', amount: '₹22,410' },
-        { percent: 18, category: 'Testing Equipment', detail: 'Multimeters, Soldering Station, Logic Analyzer', amount: '₹14,940' },
-        { percent: 12, category: '3D Printing & Casing', detail: 'Filament, Resin, Prototyping Service', amount: '₹9,960' },
-        { percent: 24, category: 'User Testing', detail: 'Hospital Field Visits, 20+ User Trials', amount: '₹19,920' },
-        { percent: 19, category: 'Contingency & Misc', detail: 'Cables, Connectors, Unexpected Costs', amount: '₹15,770' }
+        { percent: 33, category: 'Patent Grant', detail: 'Provisional Patent Application & Filing Fees', amount: '₹50,000', highlighted: true },
+        { percent: 30, category: 'Hardware Prototypes', detail: 'RPi Zero 2W, Cameras, Displays (2 Units)', amount: '₹45,000', highlighted: true },
+        { percent: 13, category: 'Testing Equipment', detail: 'Multimeters, Soldering Station, Logic Analyzer', amount: '₹20,000', highlighted: true },
+        { percent: 10, category: '3D Printing & Casing', detail: 'Filament, Resin, Prototyping Service', amount: '₹15,000', highlighted: true },
+        { percent: 14, category: 'Contingency & Misc', detail: 'Cables, Connectors, Unexpected Costs', amount: '₹20,000', highlighted: true }
       ],
       whyWeNeedSupport: [
         'Self-funded students with limited resources',
@@ -383,63 +381,18 @@ const ProfessionalPresentation = () => {
       vision: '3 years: 10K devices | 5 years: Regional standard | 10 years: Communication barriers eliminated'
     },
 
-    // Slide 11: Q&A Preparation (Backup)
+    // Slide 11: Q&A
     {
       type: 'qna',
-      title: 'Anticipated Questions',
-      questions: [
-        {
-          q: 'How accurate is your system?',
-          a: 'Currently 85% on desktop MVP (100 signs). Targeting 90% for 500 signs on wearable. Academic benchmark (SignGlass): 83% BLEU1 with similar approach.'
-        },
-        {
-          q: 'What about privacy concerns?',
-          a: '100% on-device processing. Zero video transmission. Only skeletal landmarks extracted, not images. Users have full control—no cloud, no data upload.'
-        },
-        {
-          q: 'Why not smartphone apps?',
-          a: 'Hands must be free for natural signing. Holding phone makes two-handed ISL signs impossible and interrupts communication flow.'
-        },
-        {
-          q: 'How will you handle ISL dialects?',
-          a: 'Training on Mumbai variety (highest prestige). Adaptive learning handles regional variations. Phase 2 expansion to Kolkata, Chennai dialects.'
-        },
-        {
-          q: 'Manufacturing scalability?',
-          a: 'Starting with 100-unit pilot using Surat local suppliers. Partnering with electronics manufacturers. Cost drops 64% at 10K scale (₹22K→₹8.2K).'
-        },
-        {
-          q: 'Regulatory compliance?',
-          a: 'Communication aid (NOT medical device). BIS certification + EMC testing required. Timeline includes 3-6 month certification process.'
-        },
-        {
-          q: 'What if the user is in low light?',
-          a: 'Pi Camera v2 performs well in varied lighting. Future versions will include IR illumination for low-light scenarios.'
-        },
-        {
-          q: 'Battery life concerns?',
-          a: '6-8 hours with 2500mAh LiPo. Hot-swappable battery design planned. USB-C fast charging (2 hours full charge).'
-        }
-      ],
-      keyPinpoints: [
-        '₹15,000 price point aligns with ADIP scheme (100% govt subsidy)',
-        'First ISL-focused wearable in India - ZERO competitors',
-        '8-month realistic timeline with clear milestones',
-        'Team has complementary skills: AI, Hardware, UI, Design, Business',
-        'Community partnership with Gujarat Deaf Association planned',
-        'Open-source dataset benefits entire deaf community'
-      ]
+      title: 'Q & A',
+      simple: true
     },
 
     // Slide 12: Closing - Thank You
     {
       type: 'vision',
-      quote: '"Communication is a fundamental human right" — UN Convention on Rights of Persons with Disabilities',
-      vision: {
-        now: '8 months: Working prototypes tested by 20+ Gujarat deaf community members',
-        year3: '10,000 devices across India | ₹15 Cr revenue | 50,000 lives improved',
-        year5: '15M IPSL family served (India, Pakistan, Bangladesh, Nepal, Sri Lanka)'
-      },
+      title: 'Thank You',
+      quote: '"Communication is a fundamental human right" — UN Convention on Rights of People with Disabilities',
       callToAction: 'Join us in making history. Together, let\'s give voice to 18 million Indians and build an inclusive India where no one is silenced.',
       contact: {
         email: 'rdwarkesh1300@gmail.com',
@@ -479,11 +432,8 @@ const ProfessionalPresentation = () => {
               <div className="text-4xl font-black text-white mb-3">
                 {slide.team}
               </div>
-              <div className="text-xl text-blue-300 mb-2">
+              <div className="text-xl text-blue-300">
                 {slide.submissionDate}
-              </div>
-              <div className="text-lg text-blue-400">
-                {slide.institution}
               </div>
             </div>
           </div>
@@ -607,6 +557,23 @@ const ProfessionalPresentation = () => {
         );
 
       case 'qna':
+        // Simple mode: Just show Q&A centered
+        if (slide.simple) {
+          return (
+            <div className="bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 h-full flex flex-col items-center justify-center text-white">
+              <div className="text-center">
+                <h2 className="text-8xl md:text-9xl font-black mb-8">
+                  <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-transparent bg-clip-text">
+                    Q & A
+                  </span>
+                </h2>
+                <p className="text-2xl text-indigo-300">We're ready for your questions!</p>
+              </div>
+            </div>
+          );
+        }
+        
+        // Detailed Q&A mode
         return (
           <div className="bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 h-full p-8 overflow-auto text-white">
             <div className="max-w-6xl mx-auto">
@@ -619,7 +586,7 @@ const ProfessionalPresentation = () => {
               
               {/* Question Cards - Unique Flipcard Style */}
               <div className="grid grid-cols-2 gap-5 mb-8">
-                {slide.questions.slice(0, 8).map((item, i) => (
+                {slide.questions && slide.questions.slice(0, 8).map((item, i) => (
                   <div key={i} className="group relative bg-white/10 backdrop-blur-sm p-5 rounded-2xl border border-white/20 hover:border-yellow-400/50 transition-all hover:scale-[1.02] hover:shadow-xl">
                     {/* Question Number Badge */}
                     <div className="absolute -top-3 -left-3 w-10 h-10 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-slate-900 font-black text-lg shadow-lg">
@@ -835,6 +802,15 @@ const ProfessionalPresentation = () => {
                     <p className="text-base text-gray-600">{feature.desc}</p>
                   </div>
                 ))}
+              </div>
+
+              {/* Product Image */}
+              <div className="mb-6 flex justify-center">
+                <img 
+                  src="/ar_glasses_product.png" 
+                  alt="Sign Language to Speech AR Glasses" 
+                  className="max-h-80 rounded-2xl shadow-2xl border-4 border-blue-200"
+                />
               </div>
 
               {/* Prototype Blueprint Section */}
@@ -1089,102 +1065,115 @@ const ProfessionalPresentation = () => {
 
       case 'timeline':
         return (
-          <div className="bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-900 h-full p-8 overflow-auto text-white">
-            <div className="max-w-6xl mx-auto">
-              <h2 className="text-5xl font-black mb-3">{slide.title}</h2>
-              <p className="text-xl text-indigo-300 mb-6">{slide.subtitle}</p>
-              
-              <div className="grid grid-cols-2 gap-6">
-                {/* Left: Vertical Mindmap Timeline */}
-                <div className="relative">
-                  {/* Vertical Line */}
-                  <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-green-500 via-indigo-500 to-amber-500 rounded-full"></div>
-                  
-                  <div className="space-y-4">
-                    {slide.phases.map((phase, i) => (
-                      <div key={i} className="relative flex gap-4">
-                        {/* Node Circle */}
-                        <div className={`w-12 h-12 rounded-full flex items-center justify-center text-2xl z-10 shadow-lg flex-shrink-0
-                          ${phase.status === 'In Progress' ? 'bg-green-500 ring-4 ring-green-300/50 animate-pulse' : 
-                            phase.status === 'Goal' ? 'bg-amber-500' : 'bg-indigo-500'}`}>
-                          {phase.icon}
+          <div className="bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 h-full p-8 overflow-auto text-white">
+            <div className="max-w-7xl mx-auto">
+              {/* Header */}
+              <div className="text-center mb-8">
+                <h2 className="text-5xl font-black mb-3 bg-gradient-to-r from-white via-blue-200 to-purple-200 text-transparent bg-clip-text">{slide.title}</h2>
+                <p className="text-xl text-indigo-300">{slide.subtitle}</p>
+              </div>
+
+              {/* Horizontal Timeline */}
+              <div className="relative mb-8">
+                {/* Timeline Line */}
+                <div className="absolute top-10 left-0 right-0 h-2 bg-gradient-to-r from-green-500 via-blue-500 via-indigo-500 to-amber-500 rounded-full shadow-lg"></div>
+                
+                <div className="grid grid-cols-4 gap-6 relative">
+                  {slide.phases.map((phase, i) => (
+                    <div key={i} className="flex flex-col items-center">
+                      {/* Node Circle */}
+                      <div className={`w-20 h-20 rounded-full flex items-center justify-center text-4xl z-10 shadow-2xl border-4 border-slate-800
+                        ${phase.status === 'In Progress' ? 'bg-gradient-to-br from-green-400 to-green-600 ring-4 ring-green-400/40 animate-pulse' : 
+                          phase.status === 'Goal' ? 'bg-gradient-to-br from-amber-400 to-amber-600' : 'bg-gradient-to-br from-indigo-400 to-indigo-600'}`}>
+                        {phase.icon}
+                      </div>
+                      
+                      {/* Content Card */}
+                      <div className={`mt-5 w-full bg-white/10 backdrop-blur-lg p-5 rounded-2xl border-2
+                        ${phase.status === 'In Progress' ? 'border-green-500 shadow-green-500/30 shadow-xl' : 
+                          phase.status === 'Goal' ? 'border-amber-500 shadow-amber-500/30 shadow-xl' : 'border-indigo-400/50 shadow-indigo-500/20 shadow-lg'}`}>
+                        
+                        <div className="flex items-center justify-between mb-3">
+                          <span className={`text-sm font-bold px-4 py-1.5 rounded-full
+                            ${phase.status === 'In Progress' ? 'bg-green-500 text-white' : 
+                              phase.status === 'Goal' ? 'bg-amber-500 text-slate-900' : 'bg-indigo-500/70'}`}>{phase.status}</span>
+                          <span className="text-base font-black text-indigo-200">{phase.time}</span>
                         </div>
                         
-                        {/* Content Card */}
-                        <div className={`flex-1 bg-white/10 backdrop-blur-sm p-3 rounded-xl border-l-4
-                          ${phase.status === 'In Progress' ? 'border-green-500' : 
-                            phase.status === 'Goal' ? 'border-amber-500' : 'border-indigo-400'}`}>
-                          
-                          <div className="flex items-center gap-2 mb-1">
-                            <span className={`text-xs font-bold px-2 py-0.5 rounded-full
-                              ${phase.status === 'In Progress' ? 'bg-green-500' : 
-                                phase.status === 'Goal' ? 'bg-amber-500' : 'bg-indigo-500/50'}`}>{phase.status}</span>
-                            <span className="text-sm font-bold text-indigo-300">{phase.time}</span>
-                          </div>
-                          
-                          <h3 className="text-lg font-black mb-1">{phase.phase}</h3>
-                          <p className="text-sm text-indigo-200 mb-2">{phase.task}</p>
-                          
-                          <div className="flex flex-wrap gap-1">
-                            {phase.details.map((detail, j) => (
-                              <span key={j} className="text-xs bg-white/10 px-2 py-0.5 rounded-full">✓ {detail}</span>
-                            ))}
-                          </div>
+                        <h3 className="text-xl font-black mb-2">{phase.phase}</h3>
+                        <p className="text-sm text-indigo-200 mb-3">{phase.task}</p>
+                        
+                        <div className="space-y-2">
+                          {phase.details.map((detail, j) => (
+                            <div key={j} className="text-sm bg-white/10 px-3 py-2 rounded-xl flex items-center gap-2">
+                              <span className="text-green-400 text-lg">✓</span> {detail}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Bottom Section: Milestones & Deliverables */}
+              <div className="grid grid-cols-2 gap-6 mb-6">
+                {/* Execution Milestones */}
+                <div className="bg-gradient-to-br from-blue-600/30 to-indigo-600/20 p-6 rounded-2xl border border-blue-500/40 backdrop-blur-lg">
+                  <h3 className="text-xl font-black mb-4 flex items-center gap-3">
+                    <span className="w-10 h-10 bg-blue-500 rounded-xl flex items-center justify-center text-xl">🎯</span>
+                    Execution Milestones
+                  </h3>
+                  <div className="grid grid-cols-2 gap-3">
+                    {slide.resources?.milestones?.map((item, i) => (
+                      <div key={i} className="bg-white/10 px-4 py-3 rounded-xl flex items-center gap-3">
+                        <span className="text-2xl">{item.icon}</span>
+                        <div className="flex-1">
+                          <div className="text-sm font-bold">{item.item}</div>
+                          <div className="text-xs text-indigo-300">{item.target}</div>
                         </div>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Right: Resources & Deliverables */}
-                <div className="space-y-4">
-                  {/* Resources Section */}
-                  {slide.resources && (
-                    <>
-                      <div className="bg-white/10 p-4 rounded-xl border border-white/10">
-                        <h3 className="text-lg font-black mb-3 flex items-center gap-2">🔧 Hardware Resources</h3>
-                        <div className="space-y-2">
-                          {slide.resources.hardware.map((item, i) => (
-                            <div key={i} className="flex justify-between items-center text-sm bg-white/5 p-2 rounded-lg">
-                              <span>{item.item} ×{item.qty}</span>
-                              <span className="text-green-400 font-bold">{item.cost}</span>
-                            </div>
-                          ))}
-                        </div>
+                {/* Deliverables */}
+                <div className="bg-gradient-to-br from-purple-600/30 to-indigo-600/20 p-6 rounded-2xl border border-purple-500/40 backdrop-blur-lg">
+                  <h3 className="text-xl font-black mb-4 flex items-center gap-3">
+                    <span className="w-10 h-10 bg-purple-500 rounded-xl flex items-center justify-center text-xl">🎯</span>
+                    Key Deliverables
+                  </h3>
+                  <div className="space-y-3">
+                    {slide.deliverables?.map((item, i) => (
+                      <div key={i} className="flex items-center gap-3 bg-white/10 px-4 py-3 rounded-xl">
+                        <span className="text-green-400 text-xl">✓</span>
+                        <span className="text-base font-medium">{item}</span>
                       </div>
-
-                      <div className="bg-white/10 p-4 rounded-xl border border-white/10">
-                        <h3 className="text-lg font-black mb-3 flex items-center gap-2">🛠️ Tools & Equipment</h3>
-                        <div className="space-y-2">
-                          {slide.resources.tools.map((item, i) => (
-                            <div key={i} className="flex justify-between items-center text-sm bg-white/5 p-2 rounded-lg">
-                              <span>{item.item}</span>
-                              <span className="text-green-400 font-bold">{item.cost}</span>
-                            </div>
-                          ))}
-                        </div>
-                        <div className="mt-3 pt-3 border-t border-white/10 flex justify-between font-black">
-                          <span>Total Budget</span>
-                          <span className="text-green-400">{slide.resources.totalBudget}</span>
-                        </div>
-                      </div>
-                    </>
-                  )}
-
-                  {/* Deliverables */}
-                  <div className="bg-gradient-to-br from-green-600/20 to-emerald-600/20 p-4 rounded-xl border border-green-500/30">
-                    <h3 className="text-lg font-black mb-3">🎯 Deliverables by Month 8</h3>
-                    <div className="space-y-2">
-                      {slide.deliverables.map((item, i) => (
-                        <div key={i} className="flex items-center gap-2 bg-white/5 p-2 rounded-lg">
-                          <span className="text-green-400 text-lg">✓</span>
-                          <span className="text-sm">{item}</span>
-                        </div>
-                      ))}
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
+
+              {/* Vision Timeline Boxes - Improved */}
+              {slide.vision && (
+                <div className="grid grid-cols-3 gap-6">
+                  <div className="bg-gradient-to-br from-blue-500 to-blue-700 p-6 rounded-2xl text-center shadow-2xl border-2 border-blue-400/40 transform hover:scale-105 transition-all">
+                    <div className="text-4xl mb-3">🚀</div>
+                    <div className="text-sm uppercase tracking-widest text-blue-200 mb-2 font-bold">8 Months</div>
+                    <div className="text-base font-bold leading-snug">{slide.vision.now}</div>
+                  </div>
+                  <div className="bg-gradient-to-br from-green-500 to-green-700 p-6 rounded-2xl text-center shadow-2xl border-2 border-green-400/40 transform hover:scale-105 transition-all">
+                    <div className="text-4xl mb-3">📈</div>
+                    <div className="text-sm uppercase tracking-widest text-green-200 mb-2 font-bold">Year 3</div>
+                    <div className="text-base font-bold leading-snug">{slide.vision.year3}</div>
+                  </div>
+                  <div className="bg-gradient-to-br from-purple-500 to-purple-700 p-6 rounded-2xl text-center shadow-2xl border-2 border-purple-400/40 transform hover:scale-105 transition-all">
+                    <div className="text-4xl mb-3">🌍</div>
+                    <div className="text-sm uppercase tracking-widest text-purple-200 mb-2 font-bold">Year 5+</div>
+                    <div className="text-base font-bold leading-snug">{slide.vision.year5}</div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         );
@@ -1361,26 +1350,14 @@ const ProfessionalPresentation = () => {
         return (
           <div className="bg-gradient-to-br from-slate-900 to-blue-900 text-white h-full flex flex-col items-center justify-center p-12">
             <div className="max-w-5xl text-center">
-              <div className="text-5xl md:text-6xl font-light mb-12 italic leading-tight">
+              <div className="text-6xl md:text-7xl font-black mb-8 leading-tight">
+                {slide.title}
+              </div>
+              <div className="text-xl md:text-2xl font-light mb-12 italic leading-tight text-blue-200">
                 {slide.quote}
               </div>
 
-              <div className="grid grid-cols-3 gap-8 mb-12">
-                <div className="bg-white bg-opacity-10 p-6 rounded-2xl backdrop-blur-md">
-                  <div className="text-sm uppercase tracking-widest text-blue-300 mb-2">8 Months</div>
-                  <div className="text-lg md:text-xl font-bold">{slide.vision.now}</div>
-                </div>
-                <div className="bg-white bg-opacity-10 p-6 rounded-2xl backdrop-blur-md">
-                  <div className="text-sm uppercase tracking-widest text-green-300 mb-2">Year 3</div>
-                  <div className="text-lg md:text-xl font-bold">{slide.vision.year3}</div>
-                </div>
-                <div className="bg-white bg-opacity-10 p-6 rounded-2xl backdrop-blur-md">
-                  <div className="text-sm uppercase tracking-widest text-purple-300 mb-2">Year 5+</div>
-                  <div className="text-lg md:text-xl font-bold">{slide.vision.year5}</div>
-                </div>
-              </div>
-
-              <div className="text-3xl md:text-4xl font-black mb-12 leading-tight">
+              <div className="text-xl md:text-2xl font-bold mb-12 leading-relaxed text-white max-w-5xl mx-auto">
                 {slide.callToAction}
               </div>
 
@@ -1396,12 +1373,6 @@ const ProfessionalPresentation = () => {
                     <span className="font-medium">{slide.contact.phone}</span>
                   </div>
                 </div>
-              </div>
-
-              <div className="h-1 w-32 bg-blue-400 mx-auto mb-6"></div>
-              
-              <div className="text-3xl font-light">
-                Thank You
               </div>
             </div>
           </div>
