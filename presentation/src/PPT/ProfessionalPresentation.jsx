@@ -1268,21 +1268,36 @@ const ProfessionalPresentation = () => {
                 <div className="bg-white p-6 rounded-2xl shadow-xl border-4 border-green-500">
                   <h3 className="text-2xl font-black mb-4 text-green-700">💰 Budget Allocation</h3>
                   <div className="space-y-3">
-                    {slide.useOfFunds.map((item, i) => (
-                      <div key={i} className="flex justify-between items-center p-3 bg-gray-50 rounded-xl">
-                        <div className="flex-1">
-                          <div className="text-base font-bold text-gray-800">{item.category}</div>
-                          <div className="text-sm text-gray-500">{item.detail}</div>
+                    {slide.useOfFunds.map((item, i) => {
+                      const colors = [
+                        'bg-gradient-to-r from-purple-100 to-purple-50 border-l-4 border-purple-500',
+                        'bg-gradient-to-r from-blue-100 to-blue-50 border-l-4 border-blue-500',
+                        'bg-gradient-to-r from-amber-100 to-amber-50 border-l-4 border-amber-500',
+                        'bg-gradient-to-r from-pink-100 to-pink-50 border-l-4 border-pink-500',
+                        'bg-gradient-to-r from-cyan-100 to-cyan-50 border-l-4 border-cyan-500'
+                      ];
+                      const icons = ['📜', '🔧', '🛠️', '🖨️', '📦'];
+                      return (
+                        <div key={i} className={`flex justify-between items-center p-4 rounded-xl shadow-md ${colors[i % colors.length]}`}>
+                          <div className="flex items-center gap-3 flex-1">
+                            <span className="text-2xl">{icons[i % icons.length]}</span>
+                            <div>
+                              <div className="text-lg font-black text-gray-800">
+                                <span className="bg-yellow-300 px-2 py-0.5 rounded">{item.category}</span>
+                              </div>
+                              <div className="text-sm text-gray-600">{item.detail}</div>
+                            </div>
+                          </div>
+                          <div className="text-right">
+                            <div className="text-2xl font-black text-green-600">{item.amount}</div>
+                            <div className="text-sm font-bold text-gray-500 bg-white/50 px-2 py-0.5 rounded-full">{item.percent}%</div>
+                          </div>
                         </div>
-                        <div className="text-right">
-                          <div className="text-xl font-black text-green-600">{item.amount}</div>
-                          <div className="text-sm text-gray-400">{item.percent}%</div>
-                        </div>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
-                  <div className="border-t-4 border-green-400 mt-4 pt-4 flex justify-between items-center">
-                    <div className="text-2xl font-black">TOTAL</div>
+                  <div className="border-t-4 border-green-400 mt-4 pt-4 flex justify-between items-center bg-green-50 -mx-6 -mb-6 px-6 py-4 rounded-b-xl">
+                    <div className="text-2xl font-black text-green-800">TOTAL</div>
                     <div className="text-4xl font-black text-green-600">{slide.amount}</div>
                   </div>
                 </div>
