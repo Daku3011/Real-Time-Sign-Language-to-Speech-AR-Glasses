@@ -12,7 +12,7 @@ const ProfessionalPresentation = () => {
       subtitle: 'AR Glasses',
       tagline: 'Breaking Communication Barriers Through Innovation',
       team: 'Team Inno8',
-      submissionDate: '15th January 2026'
+      submissionDate: '17th January 2026'
     },
 
     // Slide 2: Introduction - Who We Are
@@ -46,7 +46,7 @@ const ProfessionalPresentation = () => {
       type: 'newspaper-problem',
       masthead: 'THE SILENT TIMES',
       edition: 'Special Investigation Edition',
-      date: 'January 15, 2026',
+      date: 'January 17, 2026',
       headline: "INDIA'S 63 MILLION SILENCED",
       subheadline: 'A Nation Fails Its Deaf Citizens',
       leadStory: {
