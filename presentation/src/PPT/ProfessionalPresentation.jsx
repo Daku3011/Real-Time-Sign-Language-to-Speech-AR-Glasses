@@ -1,403 +1,223 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, TrendingUp, Users, Heart, DollarSign, Award, Target, Zap, Shield, Globe2 } from 'lucide-react';
+import { ChevronLeft, ChevronRight, TrendingUp, Users, Heart, DollarSign, Award, Target, Zap, Shield, Globe2, Printer, X, Activity, Eye, PlayCircle, BarChart, CheckCircle2 } from 'lucide-react';
 
 const ProfessionalPresentation = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPrintView, setIsPrintView] = useState(false);
 
   const slides = [
-    // Slide 1: Title
+    // Slide 1: Introduction (Merge Title + Intro)
     {
-      type: 'title',
-      title: 'Real-Time Sign Language to Speech',
-      subtitle: 'AR Glasses',
-      tagline: 'Breaking Communication Barriers Through Innovation',
+      type: 'introduction-v2',
+      title: 'Real-Time Sign Language to Speech AR Glasses',
       team: 'Team Inno8',
-      submissionDate: '17th January 2026'
+      tagline: 'Breaking Communication Barriers Through Innovation',
+      mission: 'To give voice to 63 million Indians who deserve to be heard by building affordable, accessible wearable technology.',
+      context: 'A team of Computer Engineering students applying AI/ML, IoT, and embedded systems to solve critical accessibility challenges in partnership with the Gujarat Deaf Association.'
     },
 
-    // Slide 2: Introduction - Who We Are
+    // Slide 2: Business Overview / Description (Reframe Problem)
     {
-      type: 'introduction',
-      title: 'Introduction',
-      context: 'A team of engineering students passionate about solving India\'s critical accessibility challenges',
-      background: [
-        {
-          aspect: 'Academic Foundation',
-          detail: 'Computer Engineering students eager to apply AI/ML, IoT, and embedded systems knowledge to real-world problems'
-        },
-        {
-          aspect: 'Learning & Growth',
-          detail: 'Building our first major assistive technology project, combining coursework with hands-on innovation'
-        },
-        {
-          aspect: 'Future Community Engagement',
-          detail: 'Planning to partner with Gujarat Deaf Association for user feedback, testing, and real-world validation'
-        },
-        {
-          aspect: 'Why This Problem?',
-          detail: 'Motivated to create technology that transforms lives - giving voice to 7 million Indians who deserve to be heard'
-        }
+      type: 'business-overview',
+      title: 'Business Overview: The Communication Gap',
+      problem: '63 million deaf Indians face severe isolation. Only 340 certified interpreters exist (1:185,000 ratio).',
+      impact: [
+        { label: 'Healthcare', value: '67%', desc: 'cannot communicate independently in ERs' },
+        { label: 'Education', value: '80%', desc: 'dropout rate due to lack of support' },
+        { label: 'Career', value: '74%', desc: 'blocked from leadership roles' }
       ],
-      mission: 'To learn, build, and deliver affordable assistive technology that eliminates communication barriers for India\'s deaf community'
+      opportunity: 'A massive unaddressed need for independent, real-time communication that doesn\'t rely on scarce human interpreters or occupied hands.',
+      whyNow: 'Recent advances in edge AI (MediaPipe/TensorFlow Lite) and low-power hardware (Raspberry Pi Zero) make a highly accurate, affordable wearable possible for the first time.'
     },
 
-    // Slide 3: Problem Statement - Newspaper Style
+    // Slide 3: Strategy (Go-to-Market)
     {
-      type: 'newspaper-problem',
-      masthead: 'THE SILENT TIMES',
-      edition: 'Special Investigation Edition',
-      date: 'January 17, 2026',
-      headline: "INDIA'S 63 MILLION SILENCED",
-      subheadline: 'A Nation Fails Its Deaf Citizens',
-      leadStory: {
-        title: 'DECLARED DEAD WHILE ALIVE',
-        location: 'Jhunjhunu, Rajasthan',
-        content: 'Rohitash Kumar, 25, was declared dead by doctors because he did not respond to verbal commands. He woke up on his funeral pyre moments before cremation. Three doctors suspended.',
-        pullQuote: '"He couldn\'t hear them. They couldn\'t see him."'
-      },
-      articles: [
-        {
-          category: 'HEALTHCARE',
-          title: 'ER Communication Failure',
-          stat: '67%',
-          content: 'of deaf patients cannot communicate independently in emergency rooms',
-          source: 'Boston University, 2020'
-        },
-        {
-          category: 'PANDEMIC',
-          title: 'Mask Crisis',
-          stat: '90%',
-          content: 'struggled when lip reading became impossible with masked public servants',
-          source: 'University of Essex'
-        },
-        {
-          category: 'EMPLOYMENT',
-          title: 'Career Ceiling',
-          stat: '74%',
-          content: 'believe they will NEVER achieve leadership roles due to communication barriers',
-          source: 'NAD India Survey'
-        },
-        {
-          category: 'SAFETY',
-          title: '3 Boys Killed on Tracks',
-          stat: 'FATAL',
-          content: 'Train horn went unheard. Vandalur, TN (Oct 2024)',
-          source: 'Times of India'
-        }
+      type: 'strategy',
+      title: 'Strategy & Go-To-Market',
+      subtitle: 'Triple-channel approach to achieve scale and impact',
+      channels: [
+        { phase: 'Phase 1: B2G (Primary)', name: 'ADIP Scheme Integration', desc: 'Govt subsidy provides devices FREE to BPL users. 1.8M beneficiaries served 2014-2020.', icon: '🏛️' },
+        { phase: 'Phase 2: B2C', name: 'Direct to Consumer', desc: 'Targeting urban professionals and students via e-commerce and NGO partnerships at ₹15,000 retail.', icon: '👤' },
+        { phase: 'Phase 3: B2B', name: 'Corporate CSR', desc: 'Partnering with inclusive employers (Amazon, Lemon Tree) to equip deaf employees.', icon: '🏢' }
       ],
-      breakingNews: 'BREAKING: Only 340 certified ISL interpreters for 63 MILLION deaf Indians • 1:185,000 ratio • 95% hospitals lack support • Supreme Court declares accessibility a Fundamental Right',
-      stats: [
-        { value: '63M', label: 'Deaf Indians (WHO)' },
-        { value: '340', label: 'Interpreters' },
-        { value: '1:185K', label: 'Ratio Gap' },
-        { value: '95%', label: 'Hospitals Fail' }
+      roadmap: [
+        { time: 'Months 1-4', milestone: 'MVP & 500 Sign Model' },
+        { time: 'Months 5-6', milestone: 'Field Testing (Surat Civil Hospital)' },
+        { time: 'Months 7-8', milestone: 'BIS Certification & Pilot Batch' }
       ]
     },
 
-    // Slide 4: Solution
+    // Slide 4: Competitive Analysis & Advantages
     {
-      type: 'solution',
-      title: 'Our Solution: Wearable AR Glasses',
-      tagline: 'Hands-Free • Real-Time • Privacy-First • ISL-Focused',
-      features: [
-        { icon: Users, title: 'Truly Hands-Free', desc: 'Both hands free for natural two-handed ISL signing' },
-        { icon: Zap, title: 'Real-Time (<500ms)', desc: 'ISL → Speech instantly, MediaPipe 95.7% accuracy' },
-        { icon: Shield, title: '100% Private', desc: 'On-device AI, zero cloud dependency, no video upload' },
-        { icon: Globe2, title: 'ISL-First Product', desc: 'First wearable for 15M IPSL users (India/Pakistan/Bangladesh)' }
-      ],
-      prototype: {
-        components: [
-          { name: 'Processing', spec: 'Raspberry Pi Zero 2W (Quad-core 1GHz, 512MB RAM)' },
-          { name: 'Vision', spec: 'Pi Camera v2 (8MP Sony IMX219, 1080p30)' },
-          { name: 'Audio', spec: 'Bone Conduction Transducer (200Hz-15kHz)' },
-          { name: 'Display', spec: '0.96" OLED (128×64, I2C SSD1306)' },
-          { name: 'Power', spec: '2500mAh LiPo (6-8 hrs runtime)' },
-          { name: 'Frame', spec: 'TR-90 Optical Frame + 3D Printed Mounts' }
-        ],
-        aiStack: ['MediaPipe Hands (21 landmarks)', 'TensorFlow Lite CNN-LSTM', '500+ ISL signs vocabulary', 'On-device inference <100ms']
-      },
-      specs: 'Weight: ~80g | Battery: 6-8hrs | Charging: USB-C | Target Accuracy: 90%+'
-    },
-
-    // Slide 5: Market Analysis
-    {
-      type: 'market-infographic',
-      title: 'Massive Untapped Market',
-      marketData: {
-        TAM: { value: '63M', label: 'Total Addressable Market (WHO Estimate)', details: 'Total Sufferers' },
-        SAM: { value: '7.06M', label: 'Serviceable Available Market (Census)', details: 'Certified Disability' },
-        SOM: { value: '50K', label: 'Serviceable Obtainable Market (Year 1)', details: 'Early Adopters' }
-      },
-      targetSegments: [
-        { segment: 'Students (5-25 yrs)', size: '2.5M', pain: '80% dropout rate, mainstream education inaccessible', priority: 'High' },
-        { segment: 'Working Professionals', size: '1.2M', pain: '74% blocked from leadership, job interviews fail', priority: 'High' },
-        { segment: 'Healthcare Seekers', size: '4M+', pain: '67% cannot communicate in ERs, misdiagnosis risk', priority: 'Critical' },
-        { segment: 'Rural Communities', size: '3.5M', pain: 'ZERO interpreter access, complete isolation', priority: 'Medium' }
-      ],
+      type: 'competitive-analysis',
+      title: 'Competitive Analysis & Our Advantages',
       competitors: [
-        { name: 'XRAI Glass (UK)', price: '₹40,000', limitation: 'Speech-to-text only, no ISL' },
-        { name: 'Human Interpreters', price: '₹30-60K/mo', limitation: '1:185,000 ratio, unavailable' },
-        { name: 'Smartphone Apps', price: 'Free-₹5K', limitation: 'Hands occupied, limited signs' }
+        { name: 'Our AR Glasses', price: '₹15,000 (or Free via ADIP)', feature: 'Real-time ISL to Audio', handsFree: 'Yes', privacy: 'On-device', focus: 'ISL' },
+        { name: 'XRAI Glass (UK)', price: '₹40,000+', feature: 'Speech to Text only', handsFree: 'Yes', privacy: 'Cloud-dependent', focus: 'English' },
+        { name: 'Smartphone Apps', price: 'Free - ₹5,000', feature: 'Basic Translation', handsFree: 'No', privacy: 'Cloud API', focus: 'ASL/ISL' },
+        { name: 'Human Interpreters', price: '₹30K-60K / month', feature: 'Full Translation', handsFree: 'Yes', privacy: 'Third-party present', focus: 'ISL' }
       ],
-      govSupport: 'Only 340 certified ISL interpreters for 63M deaf Indians',
-      cagr: '12.8%'
-    },
-
-    // Slide 6: Business Model - Enhanced
-    {
-      type: 'business-model',
-      title: 'Revenue Model & Go-to-Market',
-      streams: [
-        {
-          name: 'B2G: ADIP Scheme',
-          icon: '🏛️',
-          percentage: 60,
-          desc: '100% govt subsidy for BPL users',
-          highlight: '₹15,000 device = FREE for users',
-          detail: '1.8M beneficiaries served 2014-2020',
-          cta: 'Primary Channel'
-        },
-        {
-          name: 'B2C: Direct Sales',
-          icon: '👤',
-          percentage: 30,
-          desc: 'Urban professionals, self-funded',
-          highlight: 'Fixed retail: ₹15,000',
-          detail: 'E-commerce + NGO partnerships',
-          cta: 'Growth Channel'
-        },
-        {
-          name: 'B2B: Corporate CSR',
-          icon: '🏢',
-          percentage: 10,
-          desc: 'Companies hiring deaf employees',
-          highlight: '95% cheaper than interpreters',
-          detail: 'Amazon, KFC, Lemon Tree model',
-          cta: 'High Margin'
-        }
-      ],
-      salesPlan: {
-        year1: { units: 100, revenue: '₹15L', strategy: 'Pilot in Gujarat hospitals + deaf associations' },
-        year2: { units: 1000, revenue: '₹1.5Cr', strategy: 'ADIP empanelment + 5 state expansion' },
-        year3: { units: 10000, revenue: '₹15Cr', strategy: 'National scale + B2B partnerships' }
-      },
-      costBreakdown: [
-        { scale: '10 units', cost: '₹22,000', source: 'Prototype (current)' },
-        { scale: '100 units', cost: '₹14,800', source: 'Small batch' },
-        { scale: '1,000 units', cost: '₹10,500', source: 'Manufacturing' },
-        { scale: '10,000 units', cost: '₹8,200', source: 'Mass production' }
-      ],
-      metrics: {
-        breakeven: '500 units',
-        margin: '45-55%',
-        year3Revenue: '₹15 Cr'
-      },
-      competitorCost: '₹30,000-60,000/month for human interpreters'
-    },
-
-    // Slide 7: Execution Plan - Enhanced Roadmap with Resources
-    {
-      type: 'timeline',
-      title: 'Execution Roadmap',
-      subtitle: 'From Prototype to Market in 8 Months',
-      phases: [
-        { 
-          time: 'M1-M2', 
-          phase: 'Dataset Collection',
-          task: 'ISL Dataset + Desktop MVP',
-          details: ['5,000 samples from 50 signers', '50 signs vocabulary', '85% accuracy baseline'],
-          icon: '📊',
-          status: 'In Progress'
-        },
-        { 
-          time: 'M3-M4', 
-          phase: 'Model Optimization',
-          task: 'Scale to 500 Signs',
-          details: ['TensorFlow Lite optimization', '90% accuracy target', 'Raspberry Pi integration'],
-          icon: '🧠',
-          status: 'Planned'
-        },
-        { 
-          time: 'M5-M6', 
-          phase: 'Hardware Prototype',
-          task: 'Field Testing at Surat Civil Hospital',
-          details: ['5 working wearable units', '20+ deaf user trials', 'Iterate based on feedback'],
-          icon: '🔬',
-          status: 'Planned'
-        },
-        { 
-          time: 'M7-M8', 
-          phase: 'Certification & Launch',
-          task: 'ADIP Certification + Manufacturing',
-          details: ['BIS certification', '100 unit pilot batch', 'Gujarat Deaf Association partnership'],
-          icon: '🚀',
-          status: 'Goal'
-        }
-      ],
-      resources: {
-        milestones: [
-          { item: 'Patent Grant Filing', status: 'Priority', icon: '📜'},
-          { item: 'BIS Certification', status: 'Critical', icon: '✅'},
-          { item: 'User Testing (20+ trials)', status: 'Key', icon: '👥'},
-          { item: 'Gujarat Deaf Association Partnership', status: 'Strategic', icon: '🤝'},
-          { item: 'ADIP Scheme Empanelment', status: 'Goal', icon: '🏛️'},
-          { item: 'Manufacturing Partner Setup', status: 'Scale', icon: '🏭'}
-        ],
-        totalBudget: '₹1,50,000 (Total SSIP Funding Request)'
-      },
-      vision: {
-        now: '8 months: Working prototypes tested by 20+ Gujarat deaf community members',
-        year3: '10,000 devices across India | ₹15 Cr revenue | 50,000 lives improved',
-        year5: '15M IPSL family served (India, Pakistan, Bangladesh, Nepal, Sri Lanka)'
-      },
-      deliverables: [
-        'Patent application filed',
-        'BIS certification initiated',
-        '100 pre-orders secured',
-        'Open-source dataset released'
+      advantages: [
+        { title: 'Truly Hands-Free', desc: 'Allows natural two-handed ISL signing' },
+        { title: '100% Private', desc: 'Zero cloud dependency, all processing on-device' },
+        { title: 'Deep Cultural Fit', desc: 'Designed specifically for Indian Sign Language (ISL)' },
+        { title: 'Affordable Scaling', desc: 'Priced to fit within ADIP scheme government subsidies' }
       ]
     },
 
-    // Slide 8: Team
+    // Slide 5: Market Opportunity
+    {
+      type: 'market-opportunity',
+      title: 'Market Opportunity',
+      metrics: [
+        { value: '63M', label: 'Total Addressable Market', desc: 'Deaf Indians (WHO Estimate)' },
+        { value: '7.06M', label: 'Serviceable Available Market', desc: 'Certified Disability (Census)' },
+        { value: '50K', label: 'Serviceable Obtainable Market', desc: 'Early Adopters (Year 1)' }
+      ],
+      growth: 'Assistive Tech market growing at 12.8% CAGR',
+      catalyst: 'Supreme Court recently mandated sign language accessibility as a fundamental right.'
+    },
+
+    // Slide 6: Product Description 1
+    {
+      type: 'product-description',
+      title: 'Description of Product: The User Experience',
+      tagline: 'A seamless, wearable interpreter bridging the silent gap',
+      features: [
+        { icon: Users, title: 'Natural Interaction', desc: 'Speaker sees translation on OLED, glasses speak the translation aloud via bone conduction.' },
+        { icon: Zap, title: 'Low Latency', desc: 'Under 500ms delay from sign to speech ensures conversation flows naturally.' },
+        { icon: Shield, title: 'Privacy First', desc: 'No video is recorded or sent to the cloud. Models run entirely on the glasses.' },
+        { icon: Activity, title: 'All-Day Use', desc: 'Lightweight TR-90 frame (~80g) with 6-8 hours of continuous battery life.' }
+      ],
+      status: 'Currently refining a desktop MVP with 85% accuracy on a 50-sign vocabulary.'
+    },
+
+    // Slide 7: Product Description 2
+    {
+      type: 'product-technical',
+      title: 'Description of Product: Technical Architecture',
+      hardware: [
+        { component: 'Processing', spec: 'Raspberry Pi Zero 2W (Quad-core, 512MB RAM)' },
+        { component: 'Vision', spec: 'Pi Camera v2 (8MP, 1080p30)' },
+        { component: 'Audio Output', spec: 'Bone Conduction Transducer (200Hz-15kHz)' },
+        { component: 'Display', spec: '0.96" OLED (128×64) for visual feedback' }
+      ],
+      software: [
+        { step: '1. Vision Capture', detail: 'Camera captures hand and facial movements at 30 fps' },
+        { step: '2. Landmark Extraction', detail: 'MediaPipe Hands identifies 21 3D landmarks per hand' },
+        { step: '3. ML Inference', detail: 'TensorFlow Lite CNN-LSTM model classifies the dynamic sign' },
+        { step: '4. Output Synthesis', detail: 'Text-to-Speech engine converts classification to audio' }
+      ]
+    },
+
+    // Slide 8: Market Analysis
+    {
+      type: 'market-analysis-detailed',
+      title: 'Market Analysis & Segmentation',
+      segments: [
+        { name: 'Students (5-25 yrs)', size: '2.5M', pain: 'Mainstream education inaccessible', intent: 'Parents seeking educational aids' },
+        { name: 'Working Professionals', size: '1.2M', pain: 'Job interviews fail, leadership blocked', intent: 'Willing to self-fund for career growth' },
+        { name: 'Healthcare Seekers', size: '4M+', pain: 'Misdiagnosis risk in ERs', intent: 'Hospitals seeking compliance' },
+        { name: 'Rural Communities', size: '3.5M', pain: 'Complete isolation, zero interpreters', intent: 'Reached via NGO & Gov schemes' }
+      ],
+      trend: 'Shift from institutional care to independent living aids. Increasing government mandates for accessibility in public and private sectors.'
+    },
+
+    // Slide 9: Organisation and Team
     {
       type: 'team',
-      title: 'Team Inno8',
+      title: 'Organisation & Team',
       subtitle: 'Passionate Engineers Building for Impact',
       members: [
         {
           name: 'Dwarkesh Ramani',
           role: 'Team Lead & Backend Dev',
           education: 'Computer Engineering',
-          photo: '/team/dwarkesh.webp',
           skills: ['Python', 'AI/ML', 'System Design']
         },
         {
           name: 'Jenil Gajera',
           role: 'Hardware Lead',
           education: 'Computer Engineering',
-          photo: '/team/jenil.webp',
           skills: ['Raspberry Pi', 'IoT', 'Electronics']
         },
         {
           name: 'Jenny Patel',
           role: 'Frontend & UI',
           education: 'Computer Engineering',
-          photo: '/team/jenny.webp',
           skills: ['React', 'UI/UX', 'Web Dev']
-        },
-        {
-          name: 'Drashtant Mevada',
-          role: 'Design & 3D Modeling',
-          education: 'Computer Engineering',
-          photo: '/team/drashtant.webp',
-          skills: ['CAD', '3D Printing', 'Product Design']
         },
         {
           name: 'Akifa Shaikh',
           role: 'Business & Report',
           education: 'Computer Engineering',
-          photo: '/team/akifa.webp',
+          skills: ['Documentation', 'Research', 'Market Analysis']
+        },
+        {
+          name: 'Drashtant Mevada',
+          role: 'Business & Report',
+          education: 'Computer Engineering',
           skills: ['Documentation', 'Research', 'Market Analysis']
         }
       ],
       advisors: [
         {
-          name: 'Prof. Pariza Kamboj',
+          name: 'Prof. Dr. Pariza Kamboj',
           role: 'Faculty Mentor',
           credentials: 'Professor, Computer Engineering Department',
-          affiliation: 'Project Guide & Technical Advisor', 
-          image: '/mnt/Dwarkesh/SSIP/unnamed.webp'
+          affiliation: 'Project Guide & Technical Advisor'
         }
-      ],
-      teamStrength: '5 engineers with complementary skills covering AI, Hardware, UI, Design & Business'
+      ]
+      // teamStrength: 'A multidisciplinary team covering AI, Hardware, UI, and Business.'
     },
 
-     // Slide 9: The Ask
+    // Slide 10: Financial Analysis
     {
-      type: 'ask',
-      title: 'Funding Request: ₹1,50,000',
-      amount: '₹1,50,000',
-      equity: 'SSIP Grant Application',
-      useOfFunds: [
-        { percent: 33, category: 'Patent Grant', detail: 'Provisional Patent Application & Filing Fees', amount: '₹50,000', highlighted: true },
-        { percent: 30, category: 'Hardware Prototypes', detail: 'RPi Zero 2W, Cameras, Displays (2 Units)', amount: '₹45,000', highlighted: true },
-        { percent: 13, category: 'Testing Equipment', detail: 'Multimeters, Soldering Station, Logic Analyzer', amount: '₹20,000', highlighted: true },
-        { percent: 10, category: '3D Printing & Casing', detail: 'Filament, Resin, Prototyping Service', amount: '₹15,000', highlighted: true },
-        { percent: 14, category: 'Contingency & Misc', detail: 'Cables, Connectors, Unexpected Costs', amount: '₹20,000', highlighted: true }
+      type: 'financial-analysis',
+      title: 'Financial Analysis',
+      projections: [
+        { year: 'Year 1', units: 100, rev: '₹15L', phase: 'Pilot & Grants' },
+        { year: 'Year 2', units: 1000, rev: '₹1.5Cr', phase: 'ADIP Empanelment' },
+        { year: 'Year 3', units: 10000, rev: '₹15Cr', phase: 'National Scale' }
       ],
-      whyWeNeedSupport: [
-        'Self-funded students with limited resources',
-        'Hardware prototyping requires significant upfront investment',
-        'User testing requires travel and coordination costs',
-        'Quality components needed for reliable demo'
+      unitEconomics: [
+        { scale: 'Proto (10 units)', cost: '₹22,000' },
+        { scale: 'Batch (100 units)', cost: '₹14,800' },
+        { scale: 'Scale (10K units)', cost: '₹8,200' }
       ],
-      howWeWillUse: [
-        'Build 2 working prototype units for demo',
-        'Conduct 20+ user trials at Surat Civil Hospital',
-        'File provisional patent application',
-        'Present at SSIP showcase event'
-      ],
-      terms: [
-        'Funds used exclusively for project development',
-        'Quarterly progress reports submitted',
-        'All IP remains with student team',
-        'Open-source ISL dataset released to community'
-      ],
-      commitment: 'We commit to delivering a working prototype within 8 months and open-sourcing our ISL dataset to benefit the entire deaf community.'
-    },
-
-    // Slide 10: Conclusion
-    {
-      type: 'conclusion',
-      title: 'Transforming Lives, Building the Future',
-      keyPoints: [
-        {
-          icon: Heart,
-          point: 'The Problem',
-          summary: '7M Indians isolated, 67% can\'t access healthcare, 74% career-blocked'
-        },
-        {
-          icon: Zap,
-          point: 'Our Solution',
-          summary: 'Affordable AR glasses, ISL-first, hands-free, privacy-protected'
-        },
-        {
-          icon: TrendingUp,
-          point: 'Market Opportunity',
-          summary: '₹27,000 Cr addressable market, ZERO competition, govt-backed'
-        },
-        {
-          icon: Target,
-          point: 'Execution Ready',
-          summary: '8-month roadmap, proven tech, community partnerships'
-        }
-      ],
-      impact: {
-        immediate: '10,000 users + 40,000 families = 50,000 lives transformed',
-        financial: '₹530 Cr societal cost savings + sustainable business model',
-        longTerm: 'Standard govt assistive device reaching 15M IPSL users across South Asia'
-      },
-      value: 'We\'re not just building a product—we\'re giving 18 million Indians a voice',
-      vision: '3 years: 10K devices | 5 years: Regional standard | 10 years: Communication barriers eliminated'
-    },
-
-    // Slide 11: Q&A
-    {
-      type: 'qna',
-      title: 'Q & A',
-      simple: true
-    },
-
-    // Slide 12: Closing - Thank You
-    {
-      type: 'vision',
-      title: 'Thank You',
-      quote: '"Communication is a fundamental human right" — UN Convention on Rights of People with Disabilities',
-      callToAction: 'Join us in making history. Together, let\'s give voice to 18 million Indians and build an inclusive India where no one is silenced.',
-      contact: {
-        email: 'rdwarkesh1300@gmail.com',
-        phone: '+91 90999 35366'
+      metrics: {
+        retailPrice: '₹15,000',
+        marginAtScale: '45-55%',
+        breakeven: '500 units'
       }
+    },
+
+    // Slide 11: Funding Request
+    {
+      type: 'funding-request',
+      title: 'Funding Request',
+      total: '₹1,50,000',
+      purpose: 'To transition from desktop MVP to 5 fully functional wearable prototypes and secure IP.',
+      allocation: [
+        { category: 'Patent & IP', amount: '₹50,000', percent: 33 },
+        { category: 'Hardware (Prototypes)', amount: '₹45,000', percent: 30 },
+        { category: 'Testing Equipment', amount: '₹20,000', percent: 13 },
+        { category: '3D Printing & Casing', amount: '₹15,000', percent: 10 },
+        { category: 'Contingency', amount: '₹20,000', percent: 14 }
+      ],
+      roi: 'Secures patent, validates hardware with 20+ deaf users, positions for ADIP certification.'
+    },
+
+    // Slide 12: Exit
+    {
+      type: 'exit-strategy',
+      title: 'Exit Strategy',
+      paths: [
+        { name: 'Acquisition by MedTech/Assistive Giants', desc: 'Companies like Cochlear or GN Resound acquiring our ISL dataset and hardware IP to enter the Indian market.' },
+        { name: 'Licensing Model', desc: 'Licensing our optimized on-device ISL recognition engine to smartphone manufacturers and smart glass makers (e.g., Meta, Google).' },
+        { name: 'Sustainable Social Enterprise', desc: 'Operating profitably while fulfilling a critical social mission, fueled by government ADIP procurements and corporate CSR budgets.' }
+      ],
+      vision: 'In 5 years, we aim to be the regional standard for the 15M IPSL family (India, Pakistan, Bangladesh), having eliminated the communication barrier for millions.'
     }
   ];
 
@@ -406,58 +226,324 @@ const ProfessionalPresentation = () => {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
+      if (isPrintView) return;
       if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
       if (e.key === 'ArrowLeft' || e.key === 'Backspace') prevSlide();
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
+  }, [isPrintView]);
 
   const renderSlide = (slide) => {
     switch (slide.type) {
-      case 'title':
+      case 'introduction-v2':
         return (
-          <div className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white h-full flex flex-col items-center justify-center p-12">
-            <div className="max-w-5xl text-center">
-              <div className="text-6xl md:text-8xl font-black mb-6 leading-tight">
+          <div className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white h-full flex flex-col p-12">
+            <div className="max-w-6xl mx-auto flex flex-col h-full justify-center text-center">
+              <div className="text-3xl text-blue-300 font-bold tracking-widest uppercase mb-4">{slide.team}</div>
+              <h1 className="text-6xl md:text-8xl font-black mb-6 leading-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-100 to-blue-400">
                 {slide.title}
-              </div>
-              <div className="text-3xl md:text-5xl font-light mb-8 text-blue-200">
-                {slide.subtitle}
-              </div>
-              <div className="h-1 w-32 bg-blue-400 mx-auto mb-8"></div>
-              <div className="text-2xl font-medium text-blue-100 mb-12">
+              </h1>
+              <div className="text-3xl font-light text-blue-200 mb-12">
                 {slide.tagline}
               </div>
-              <div className="text-4xl font-black text-white mb-3">
-                {slide.team}
+
+              <div className="bg-white/10 p-8 rounded-3xl backdrop-blur-md border border-white/20 mb-8 max-w-4xl mx-auto">
+                <div className="text-sm uppercase tracking-widest text-blue-300 mb-3 font-bold">Our Mission</div>
+                <div className="text-3xl font-bold leading-relaxed">{slide.mission}</div>
               </div>
-              <div className="text-xl text-blue-300">
-                {slide.submissionDate}
+
+              <div className="text-xl text-blue-100/80 max-w-3xl mx-auto leading-relaxed">
+                {slide.context}
               </div>
             </div>
           </div>
         );
 
-      case 'introduction':
+      case 'business-overview':
         return (
-          <div className="bg-gradient-to-br from-indigo-50 to-white h-full p-12 overflow-auto">
+          <div className="bg-gradient-to-br from-gray-50 to-blue-50 h-full p-12">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-6xl font-black mb-6 text-gray-900">{slide.title}</h2>
-              <div className="text-2xl text-indigo-600 mb-12 font-medium">{slide.context}</div>
-              
-              <div className="grid grid-cols-2 gap-6 mb-12">
-                {slide.background.map((item, i) => (
-                  <div key={i} className="bg-white p-6 rounded-2xl shadow-lg border-2 border-indigo-100">
-                    <div className="text-sm uppercase tracking-widest text-indigo-600 font-bold mb-2">{item.aspect}</div>
-                    <div className="text-lg text-gray-700">{item.detail}</div>
+              <h2 className="text-5xl font-black mb-8 text-gray-900">{slide.title}</h2>
+
+              <div className="bg-gradient-to-r from-red-600 to-red-700 text-white p-6 rounded-2xl shadow-xl mb-8">
+                <div className="text-xl font-bold uppercase tracking-wider mb-2 opacity-80">The Core Problem</div>
+                <div className="text-3xl font-black">{slide.problem}</div>
+              </div>
+
+              <div className="grid grid-cols-3 gap-6 mb-8">
+                {slide.impact.map((item, i) => (
+                  <div key={i} className="bg-white p-6 rounded-2xl shadow-lg border border-red-100 transform hover:-translate-y-1 transition-transform">
+                    <div className="text-sm font-bold text-red-500 uppercase tracking-widest mb-2">{item.label}</div>
+                    <div className="text-5xl font-black text-gray-900 mb-2">{item.value}</div>
+                    <div className="text-gray-600 text-lg">{item.desc}</div>
                   </div>
                 ))}
               </div>
 
-              <div className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-8 rounded-2xl text-center">
-                <div className="text-sm uppercase tracking-widest mb-3">Our Mission</div>
-                <div className="text-3xl font-black">{slide.mission}</div>
+              <div className="grid grid-cols-2 gap-6">
+                <div className="bg-blue-600 text-white p-6 rounded-2xl shadow-lg">
+                  <div className="text-sm font-bold uppercase tracking-widest mb-2 opacity-80">The Opportunity</div>
+                  <div className="text-xl leading-relaxed">{slide.opportunity}</div>
+                </div>
+                <div className="bg-emerald-600 text-white p-6 rounded-2xl shadow-lg">
+                  <div className="text-sm font-bold uppercase tracking-widest mb-2 opacity-80">Why Now?</div>
+                  <div className="text-xl leading-relaxed">{slide.whyNow}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+
+      case 'strategy':
+        return (
+          <div className="bg-gradient-to-br from-indigo-50 to-white h-full p-12">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-5xl font-black mb-4 text-gray-900">{slide.title}</h2>
+              <div className="text-2xl text-indigo-600 mb-8 font-medium">{slide.subtitle}</div>
+
+              <div className="grid grid-cols-3 gap-6 mb-10">
+                {slide.channels.map((channel, i) => (
+                  <div key={i} className="bg-white p-6 rounded-2xl border-2 border-indigo-100 shadow-xl relative overflow-hidden group hover:border-indigo-400 transition-colors">
+                    <div className="absolute top-0 left-0 w-full h-2 bg-indigo-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform"></div>
+                    <div className="text-3xl mb-4">{channel.icon}</div>
+                    <div className="text-sm font-black text-indigo-500 uppercase tracking-wider mb-2">{channel.phase}</div>
+                    <div className="text-2xl font-black text-gray-900 mb-3">{channel.name}</div>
+                    <div className="text-gray-600 leading-relaxed text-lg">{channel.desc}</div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="bg-gradient-to-r from-slate-800 to-indigo-900 text-white p-8 rounded-2xl shadow-2xl relative overflow-hidden">
+                <div className="absolute right-0 top-0 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+                <h3 className="text-2xl font-black mb-6">Execution Roadmap</h3>
+                <div className="flex justify-between items-center relative z-10">
+                  {slide.roadmap.map((step, i) => (
+                    <div key={i} className="flex-1 px-4 relative">
+                      {i !== slide.roadmap.length - 1 && <div className="absolute top-4 left-1/2 w-full h-1 bg-white/20"></div>}
+                      <div className="w-8 h-8 rounded-full bg-indigo-500 border-4 border-indigo-900 mx-auto mb-4 relative z-10"></div>
+                      <div className="text-center">
+                        <div className="text-indigo-300 font-bold mb-1">{step.time}</div>
+                        <div className="text-lg font-bold leading-tight">{step.milestone}</div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+
+      case 'competitive-analysis':
+        return (
+          <div className="bg-gradient-to-br from-slate-50 to-gray-100 h-full p-12">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-5xl font-black mb-8 text-gray-900">{slide.title}</h2>
+
+              <div className="bg-white rounded-2xl shadow-xl overflow-hidden mb-10 border border-gray-200">
+                <table className="w-full text-left border-collapse">
+                  <thead>
+                    <tr className="bg-gray-900 text-white">
+                      <th className="p-4 text-lg font-bold">Solution</th>
+                      <th className="p-4 text-lg font-bold">Price</th>
+                      <th className="p-4 text-lg font-bold">Core Feature</th>
+                      <th className="p-4 text-lg font-bold">Hands-Free</th>
+                      <th className="p-4 text-lg font-bold">Privacy</th>
+                      <th className="p-4 text-lg font-bold">Focus</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {slide.competitors.map((comp, i) => (
+                      <tr key={i} className={`${i === 0 ? 'bg-indigo-50 border-l-4 border-indigo-600' : 'border-t border-gray-200'} hover:bg-gray-50 transition-colors`}>
+                        <td className={`p-4 text-lg ${i === 0 ? 'font-black text-indigo-900' : 'font-medium text-gray-800'}`}>{comp.name}</td>
+                        <td className="p-4 text-gray-700">{comp.price}</td>
+                        <td className="p-4 text-gray-700">{comp.feature}</td>
+                        <td className="p-4">
+                          {comp.handsFree === 'Yes' ? <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-bold">Yes</span> : <span className="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-bold">No</span>}
+                        </td>
+                        <td className="p-4 text-gray-700">{comp.privacy}</td>
+                        <td className="p-4 font-bold text-gray-700">{comp.focus}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              <h3 className="text-2xl font-black mb-6 text-indigo-900">Our Strategic Advantages</h3>
+              <div className="grid grid-cols-4 gap-4">
+                {slide.advantages.map((adv, i) => (
+                  <div key={i} className="bg-indigo-600 text-white p-5 rounded-xl text-center shadow-lg relative overflow-hidden">
+                    <CheckCircle2 className="w-8 h-8 text-indigo-300 absolute top-4 right-4 opacity-50" />
+                    <div className="relative z-10 text-left">
+                      <div className="text-xl font-black mb-2">{adv.title}</div>
+                      <div className="text-indigo-100 text-sm leading-relaxed">{adv.desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        );
+
+      case 'market-opportunity':
+        return (
+          <div className="bg-white h-full p-12">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-5xl font-black mb-12 text-gray-900">{slide.title}</h2>
+
+              <div className="flex gap-6 mb-12 items-end justify-center">
+                {slide.metrics.map((metric, i) => {
+                  const colors = [
+                    'from-blue-600 to-blue-400',
+                    'from-indigo-600 to-indigo-400',
+                    'from-purple-600 to-purple-400'
+                  ];
+                  return (
+                    <div key={i} className={`flex-1 bg-gradient-to-b ${colors[i]} rounded-2xl p-8 text-white text-center shadow-2xl transform transition-transform hover:scale-105`}>
+                      <div className="text-6xl font-black mb-4 tracking-tighter">{metric.value}</div>
+                      <div className="text-2xl font-black mb-2">{metric.label}</div>
+                      <div className="text-lg opacity-80">{metric.desc}</div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div className="grid grid-cols-2 gap-8">
+                <div className="bg-green-50 border-l-8 border-green-500 p-8 rounded-r-2xl shadow-md">
+                  <div className="flex items-center gap-4 mb-2">
+                    <TrendingUp className="w-8 h-8 text-green-600" />
+                    <div className="text-sm font-black text-green-600 uppercase tracking-widest">Market Growth</div>
+                  </div>
+                  <div className="text-2xl font-bold text-gray-800">{slide.growth}</div>
+                </div>
+                <div className="bg-amber-50 border-l-8 border-amber-500 p-8 rounded-r-2xl shadow-md">
+                  <div className="flex items-center gap-4 mb-2">
+                    <Award className="w-8 h-8 text-amber-600" />
+                    <div className="text-sm font-black text-amber-600 uppercase tracking-widest">Policy Catalyst</div>
+                  </div>
+                  <div className="text-2xl font-bold text-gray-800">{slide.catalyst}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+
+      case 'product-description':
+        return (
+          <div className="bg-gradient-to-br from-blue-50 to-white h-full p-12">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-5xl font-black mb-4 text-gray-900">{slide.title}</h2>
+              <div className="text-2xl font-medium mb-10 text-blue-600">{slide.tagline}</div>
+
+              <div className="grid grid-cols-2 gap-8 mb-10">
+                <div className="grid grid-cols-2 gap-4">
+                  {slide.features.map((feature, i) => (
+                    <div key={i} className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:border-blue-300 transition-colors">
+                      <feature.icon className="w-10 h-10 text-blue-600 mb-4" />
+                      <h3 className="text-xl font-black mb-2 text-gray-900">{feature.title}</h3>
+                      <p className="text-sm text-gray-600 leading-relaxed">{feature.desc}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white flex items-center justify-center bg-gray-100">
+                  {/* Using a placeholder for the product image, assuming the client has it or uses a generic AR glasses graphic */}
+                  <img src="/ar_glasses_product.png" alt="AR Glasses Illustration" className="w-full h-full object-cover" onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 800 600" fill="%23f3f4f6"><rect width="800" height="600" fill="%23e5e7eb"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="24" fill="%236b7280">Product Render Placeholder</text></svg>';
+                  }} />
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-6 rounded-xl flex items-center gap-4 shadow-lg">
+                <Activity className="w-8 h-8 text-blue-200" />
+                <div>
+                  <div className="text-sm font-bold uppercase tracking-widest text-blue-200 mb-1">Current Status</div>
+                  <div className="text-xl font-bold">{slide.status}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+
+      case 'product-technical':
+        return (
+          <div className="bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 h-full p-12 text-white">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-5xl font-black mb-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-purple-200">{slide.title}</h2>
+
+              <div className="grid grid-cols-2 gap-10">
+                {/* Hardware */}
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-3xl shadow-2xl">
+                  <h3 className="text-2xl font-black mb-6 flex items-center gap-3">
+                    <span className="bg-blue-500 text-white w-10 h-10 rounded-lg flex items-center justify-center">🔧</span>
+                    Hardware Architecture
+                  </h3>
+                  <div className="space-y-4">
+                    {slide.hardware.map((hw, i) => (
+                      <div key={i} className="bg-black/20 p-4 rounded-xl">
+                        <div className="text-xs uppercase tracking-widest text-blue-300 font-bold mb-1">{hw.component}</div>
+                        <div className="text-lg font-bold">{hw.spec}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Software ML Pipeline */}
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-3xl shadow-2xl">
+                  <h3 className="text-2xl font-black mb-6 flex items-center gap-3">
+                    <span className="bg-purple-500 text-white w-10 h-10 rounded-lg flex items-center justify-center">🧠</span>
+                    On-Device AI Pipeline
+                  </h3>
+                  <div className="space-y-4 relative">
+                    <div className="absolute left-4 top-4 bottom-4 w-0.5 bg-purple-500/50"></div>
+                    {slide.software.map((sw, i) => (
+                      <div key={i} className="relative pl-10">
+                        <div className="absolute left-3 top-2 w-2.5 h-2.5 rounded-full bg-purple-400 border border-purple-200 shadow-[0_0_10px_rgba(192,132,252,0.8)]"></div>
+                        <div className="text-xl font-bold mb-1">{sw.step}</div>
+                        <div className="text-indigo-200 leading-relaxed font-medium">{sw.detail}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+
+      case 'market-analysis-detailed':
+        return (
+          <div className="bg-gray-50 h-full p-12">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-5xl font-black mb-10 text-gray-900">{slide.title}</h2>
+
+              <div className="grid grid-cols-2 gap-6 mb-10">
+                {slide.segments.map((seg, i) => (
+                  <div key={i} className="bg-white p-6 rounded-2xl border border-gray-200 shadow-md flex items-start gap-4 hover:shadow-xl transition-shadow">
+                    <div className="w-16 h-16 bg-blue-100 rounded-2xl flex items-center justify-center text-blue-600 font-black text-2xl flex-shrink-0">
+                      {i + 1}
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-black text-gray-900 mb-1">{seg.name}</h3>
+                      <div className="text-blue-600 font-bold mb-3">Market Size: {seg.size}</div>
+                      <div className="space-y-2">
+                        <div className="text-sm bg-red-50 text-red-700 p-2 rounded-lg border border-red-100 flex items-start gap-2">
+                          <span className="font-bold shrink-0">Pain:</span> {seg.pain}
+                        </div>
+                        <div className="text-sm bg-green-50 text-green-700 p-2 rounded-lg border border-green-100 flex items-start gap-2">
+                          <span className="font-bold shrink-0">Intent:</span> {seg.intent}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="bg-gradient-to-r from-gray-900 to-slate-800 text-white p-6 rounded-xl flex items-center justify-center gap-4 shadow-xl">
+                <Globe2 className="w-10 h-10 text-blue-400" />
+                <div>
+                  <div className="text-xs uppercase tracking-widest text-blue-400 font-bold mb-1">Macro Trend</div>
+                  <div className="text-lg font-medium">{slide.trend}</div>
+                </div>
               </div>
             </div>
           </div>
@@ -465,928 +551,177 @@ const ProfessionalPresentation = () => {
 
       case 'team':
         return (
-          <div className="bg-gradient-to-br from-slate-50 to-blue-50 h-full p-8 overflow-auto">
+          <div className="bg-gradient-to-br from-slate-50 to-blue-50 h-full p-12">
             <div className="max-w-7xl mx-auto">
-              <h2 className="text-5xl font-black mb-3 text-gray-900">{slide.title}</h2>
-              {slide.subtitle && <p className="text-xl text-gray-600 mb-6">{slide.subtitle}</p>}
-              
-              {/* Faculty Mentor */}
-              <div className="bg-gradient-to-r from-purple-100 to-pink-100 p-5 rounded-2xl border-2 border-purple-200 mb-6 shadow-lg">
-                <h3 className="text-2xl font-black mb-4 text-purple-900">Faculty Mentor</h3>
+              <h2 className="text-5xl font-black mb-4 text-gray-900">{slide.title}</h2>
+              <p className="text-2xl text-gray-600 mb-10 font-medium">{slide.subtitle}</p>
+
+              <div className="bg-white p-6 rounded-2xl border border-purple-200 mb-8 shadow-md">
+                <h3 className="text-xl font-black mb-4 text-purple-900 uppercase tracking-widest">Faculty Mentor</h3>
                 {slide.advisors.map((advisor, i) => (
-                  <div key={i} className="flex items-center gap-5 bg-white p-4 rounded-xl">
-                    <div className="w-20 h-20 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center text-white text-3xl font-black shadow-lg">
+                  <div key={i} className="flex items-center gap-4">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white text-2xl font-black shadow-lg">
                       {advisor.name.split(' ').map(n => n[0]).join('')}
                     </div>
-                    <div className="flex-1">
-                      <div className="text-2xl font-black text-purple-900">{advisor.name}</div>
-                      <div className="text-lg text-gray-700">{advisor.credentials}</div>
-                      <div className="text-sm text-purple-600 font-medium">{advisor.affiliation}</div>
+                    <div>
+                      <div className="text-2xl font-black text-gray-900">{advisor.name}</div>
+                      <div className="text-gray-700 font-medium">{advisor.credentials}</div>
+                      <div className="text-sm text-purple-600 font-bold">{advisor.affiliation}</div>
                     </div>
                   </div>
                 ))}
               </div>
 
-              {/* Student Team Members - 5 column grid */}
-              <h3 className="text-2xl font-black mb-4 text-blue-900">Student Team</h3>
-              <div className="grid grid-cols-5 gap-4 mb-6">
+              <div className="grid grid-cols-5 gap-6 mb-8">
                 {slide.members.map((member, i) => (
-                  <div key={i} className="bg-white p-4 rounded-xl border-2 border-blue-200 shadow-lg text-center hover:shadow-xl transition-shadow">
-                    {/* Photo Placeholder with Initials */}
-                    <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center text-white text-xl font-black shadow-md">
+                  <div key={i} className="bg-white p-6 rounded-2xl border border-blue-200 shadow-lg text-center transform hover:-translate-y-2 transition-transform">
+                    <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-2xl font-black shadow-md">
                       {member.name.split(' ').map(n => n[0]).join('')}
                     </div>
-                    <h4 className="text-xl font-black text-blue-900 mb-1">{member.name}</h4>
-                    <div className="text-base font-bold text-indigo-600 mb-2">{member.role}</div>
-                    <div className="text-sm text-gray-500 mb-2">B.Tech {member.education}</div>
-                    {/* Skills Tags */}
-                    {member.skills && (
-                      <div className="flex flex-wrap gap-1 justify-center">
-                        {member.skills.map((skill, j) => (
-                          <span key={j} className="text-sm bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full">{skill}</span>
-                        ))}
+                    <h4 className="text-xl font-black text-gray-900 mb-1">{member.name}</h4>
+                    <div className="text-sm font-bold text-indigo-600 uppercase tracking-wider mb-2">{member.role}</div>
+                    <div className="text-xs text-gray-500 mb-4">{member.education}</div>
+                    <div className="flex flex-wrap gap-1 justify-center">
+                      {member.skills.map((skill, j) => (
+                        <span key={j} className="text-xs font-bold bg-blue-50 text-blue-700 px-2 py-1 rounded-md border border-blue-100">{skill}</span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="text-center font-bold text-lg text-gray-700 bg-blue-100/50 py-4 rounded-xl">
+                {slide.teamStrength}
+              </div>
+            </div>
+          </div>
+        );
+
+      case 'financial-analysis':
+        return (
+          <div className="bg-white h-full p-12">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-5xl font-black mb-10 text-gray-900">{slide.title}</h2>
+
+              <div className="grid grid-cols-3 gap-6 mb-10">
+                {slide.projections.map((proj, i) => (
+                  <div key={i} className="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-2xl border border-green-200 shadow-md hover:shadow-xl transition-shadow relative overflow-hidden">
+                    <div className="text-sm font-black text-green-600 uppercase tracking-widest mb-1">{proj.year}</div>
+                    <div className="text-4xl font-black text-gray-900 mb-2">{proj.rev}</div>
+                    <div className="text-lg font-bold text-gray-700 mb-4">{proj.units} units</div>
+                    <div className="inline-block bg-white text-green-800 text-sm font-bold px-3 py-1 rounded-full border border-green-100">{proj.phase}</div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="grid grid-cols-2 gap-8">
+                <div className="bg-blue-50 p-8 rounded-2xl border border-blue-200">
+                  <h3 className="text-2xl font-black mb-6 flex items-center gap-3 text-blue-900">
+                    📉 Unit Economics (Scale)
+                  </h3>
+                  <div className="space-y-4">
+                    {slide.unitEconomics.map((item, i) => (
+                      <div key={i} className="flex justify-between items-center bg-white p-4 rounded-xl shadow-sm">
+                        <span className="text-lg font-bold text-gray-700">{item.scale}</span>
+                        <span className="text-2xl font-black text-blue-600">{item.cost}</span>
                       </div>
-                    )}
+                    ))}
                   </div>
-                ))}
+                </div>
+
+                <div className="bg-gradient-to-br from-slate-900 to-indigo-900 p-8 rounded-2xl text-white shadow-xl flex flex-col justify-center">
+                  <h3 className="text-2xl font-black mb-8 text-center text-blue-200">Key Business Metrics</h3>
+                  <div className="space-y-6">
+                    <div className="flex justify-between items-center border-b border-white/20 pb-4">
+                      <span className="text-lg uppercase tracking-wider text-gray-300 font-bold">Target Retail Price</span>
+                      <span className="text-3xl font-black text-white">{slide.metrics.retailPrice}</span>
+                    </div>
+                    <div className="flex justify-between items-center border-b border-white/20 pb-4">
+                      <span className="text-lg uppercase tracking-wider text-gray-300 font-bold">Estimated Margins (At Scale)</span>
+                      <span className="text-3xl font-black text-green-400">{slide.metrics.marginAtScale}</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="text-lg uppercase tracking-wider text-gray-300 font-bold">Breakeven Volume</span>
+                      <span className="text-3xl font-black text-amber-400">{slide.metrics.breakeven}</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         );
 
-      case 'conclusion':
+      case 'funding-request':
         return (
-          <div className="bg-gradient-to-br from-slate-50 to-blue-50 h-full p-12 overflow-auto">
+          <div className="bg-gradient-to-br from-indigo-50 to-white h-full p-12">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-6xl font-black mb-12 text-gray-900">{slide.title}</h2>
-              
-              {/* Key Points */}
-              <div className="grid grid-cols-4 gap-6 mb-12">
-                {slide.keyPoints.map((item, i) => (
-                  <div key={i} className="bg-white p-6 rounded-2xl shadow-xl text-center border-2 border-gray-200">
-                    <item.icon className="w-16 h-16 mx-auto mb-4 text-indigo-600" />
-                    <h3 className="text-xl font-black mb-3">{item.point}</h3>
-                    <p className="text-sm text-gray-700">{item.summary}</p>
+              <h2 className="text-5xl font-black mb-8 text-gray-900">{slide.title}</h2>
+
+              <div className="bg-white p-8 rounded-3xl shadow-xl border-2 border-indigo-200 mb-8 flex items-center justify-between">
+                <div>
+                  <div className="text-sm font-bold uppercase tracking-widest text-indigo-500 mb-2">Total Request</div>
+                  <div className="text-6xl font-black text-gray-900 tracking-tighter">{slide.total}</div>
+                </div>
+                <div className="w-1/2 text-xl font-medium text-gray-700 leading-relaxed border-l-4 border-indigo-500 pl-6">
+                  {slide.purpose}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-8 mb-8">
+                <div className="bg-white p-6 rounded-2xl shadow-md border border-gray-100">
+                  <h3 className="text-xl font-black mb-6 text-gray-900">Budget Allocation</h3>
+                  <div className="space-y-3">
+                    {slide.allocation.map((item, i) => (
+                      <div key={i} className="flex items-center justify-between group">
+                        <div className="flex-1">
+                          <div className="flex justify-between items-center mb-1">
+                            <span className="font-bold text-gray-700">{item.category}</span>
+                            <span className="font-black text-indigo-600">{item.amount}</span>
+                          </div>
+                          <div className="w-full h-2 bg-gray-100 rounded-full overflow-hidden">
+                            <div className="h-full bg-indigo-500 rounded-full group-hover:bg-indigo-400 transition-colors" style={{ width: `${item.percent}%` }}></div>
+                          </div>
+                        </div>
+                        <div className="w-16 text-right text-xs font-bold text-gray-400 pt-3">{item.percent}%</div>
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
+                </div>
 
-              {/* Impact Summary */}
-              <div className="grid grid-cols-3 gap-4 mb-8">
-                <div className="bg-blue-50 p-6 rounded-xl border-2 border-blue-200">
-                  <div className="text-sm uppercase text-blue-600 font-bold mb-2">Immediate Impact</div>
-                  <div className="text-lg font-bold">{slide.impact.immediate}</div>
+                <div className="bg-gradient-to-br from-green-600 to-emerald-700 text-white p-8 rounded-2xl shadow-lg flex flex-col justify-center text-center relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full blur-2xl transform translate-x-1/2 -translate-y-1/2"></div>
+                  <div className="absolute bottom-0 left-0 w-32 h-32 bg-white opacity-10 rounded-full blur-2xl transform -translate-x-1/2 translate-y-1/2"></div>
+                  <Target className="w-16 h-16 mx-auto mb-6 text-green-200" />
+                  <h3 className="text-2xl font-black mb-4">Milestone ROI</h3>
+                  <p className="text-xl font-medium leading-relaxed bg-black/10 p-4 rounded-xl border border-white/10 backdrop-blur-sm">{slide.roi}</p>
                 </div>
-                <div className="bg-green-50 p-6 rounded-xl border-2 border-green-200">
-                  <div className="text-sm uppercase text-green-600 font-bold mb-2">Financial Impact</div>
-                  <div className="text-lg font-bold">{slide.impact.financial}</div>
-                </div>
-                <div className="bg-purple-50 p-6 rounded-xl border-2 border-purple-200">
-                  <div className="text-sm uppercase text-purple-600 font-bold mb-2">Long-term Vision</div>
-                  <div className="text-lg font-bold">{slide.impact.longTerm}</div>
-                </div>
-              </div>
-
-              {/* Value Proposition */}
-              <div className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-8 rounded-2xl text-center mb-6">
-                <div className="text-4xl font-black mb-4">{slide.value}</div>
-                <div className="text-xl">{slide.vision}</div>
               </div>
             </div>
           </div>
         );
 
-      case 'qna':
-        // Simple mode: Just show Q&A centered
-        if (slide.simple) {
-          return (
-            <div className="bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 h-full flex flex-col items-center justify-center text-white">
-              <div className="text-center">
-                <h2 className="text-8xl md:text-9xl font-black mb-8">
-                  <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-transparent bg-clip-text">
-                    Q & A
-                  </span>
-                </h2>
-                <p className="text-2xl text-indigo-300">We're ready for your questions!</p>
-              </div>
-            </div>
-          );
-        }
-        
-        // Detailed Q&A mode
+      case 'exit-strategy':
         return (
-          <div className="bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 h-full p-8 overflow-auto text-white">
-            <div className="max-w-6xl mx-auto">
-              <h2 className="text-5xl font-black mb-2 text-center">
-                <span className="bg-gradient-to-r from-yellow-400 to-orange-500 text-transparent bg-clip-text">
-                  {slide.title}
-                </span>
-              </h2>
-              <p className="text-lg text-indigo-300 text-center mb-8">Be prepared to answer these common questions ⚡</p>
-              
-              {/* Question Cards - Unique Flipcard Style */}
-              <div className="grid grid-cols-2 gap-5 mb-8">
-                {slide.questions && slide.questions.slice(0, 8).map((item, i) => (
-                  <div key={i} className="group relative bg-white/10 backdrop-blur-sm p-5 rounded-2xl border border-white/20 hover:border-yellow-400/50 transition-all hover:scale-[1.02] hover:shadow-xl">
-                    {/* Question Number Badge */}
-                    <div className="absolute -top-3 -left-3 w-10 h-10 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-slate-900 font-black text-lg shadow-lg">
+          <div className="bg-gradient-to-br from-slate-900 to-blue-900 text-white h-full p-12">
+            <div className="max-w-6xl mx-auto flex flex-col h-full">
+              <h2 className="text-5xl font-black mb-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-purple-300">{slide.title}</h2>
+
+              <div className="grid grid-cols-3 gap-6 mb-12 flex-1">
+                {slide.paths.map((path, i) => (
+                  <div key={i} className="bg-white/10 backdrop-blur-lg border border-white/20 p-8 rounded-2xl flex flex-col hover:bg-white/20 transition-all hover:-translate-y-2">
+                    <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center text-xl font-black mb-6">
                       {i + 1}
                     </div>
-                    
-                    <div className="text-xl font-black mb-3 text-white pl-6">{item.q}</div>
-                    <div className="text-base text-indigo-200 pl-6 border-l-4 border-green-400">
-                      {item.a}
-                    </div>
+                    <h3 className="text-2xl font-black mb-4 leading-tight">{path.name}</h3>
+                    <p className="text-blue-100 text-lg leading-relaxed flex-1">{path.desc}</p>
                   </div>
                 ))}
               </div>
 
-              {/* Key Pinpoints - Now a striking call-to-action section */}
-              {slide.keyPinpoints && (
-                <div className="relative">
-                  <div className="absolute inset-0 bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl transform rotate-1"></div>
-                  <div className="relative bg-gradient-to-r from-green-600 to-emerald-700 p-6 rounded-2xl shadow-2xl">
-                    <h3 className="text-2xl font-black mb-5 text-center flex items-center justify-center gap-3">
-                      <span className="text-3xl">💡</span>
-                      Key Strengths to Highlight
-                      <span className="text-3xl">🎯</span>
-                    </h3>
-                    <div className="grid grid-cols-3 gap-4">
-                      {slide.keyPinpoints.map((point, i) => (
-                        <div key={i} className="flex items-start gap-3 bg-white/20 p-4 rounded-xl backdrop-blur-sm border border-white/10">
-                          <span className="text-2xl">✅</span>
-                          <span className="text-base font-medium">{point}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        );
-
-      case 'newspaper-problem':
-        return (
-          <div className="bg-amber-50 h-full overflow-auto" style={{backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23d4a574\' fill-opacity=\'0.08\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")'}}>
-            <div className="max-w-6xl mx-auto p-6">
-              {/* Newspaper Masthead */}
-              <div className="text-center border-b-2 border-gray-800 pb-2 mb-2">
-                <div className="text-xs uppercase tracking-[0.5em] text-gray-600 mb-1">{slide.edition}</div>
-                <div className="text-6xl font-black font-serif tracking-tight text-gray-900" style={{fontFamily: 'Georgia, Times, serif'}}>
-                  {slide.masthead}
-                </div>
-                <div className="flex justify-between items-center mt-2 text-xs text-gray-600 border-t border-gray-400 pt-2">
-                  <span>Est. 2026</span>
-                  <span className="font-bold">{slide.date}</span>
-                  <span>Vol. 1, No. 1</span>
-                </div>
-              </div>
-
-              {/* Main Headline */}
-              <div className="text-center py-4 border-b-4 border-double border-gray-800 mb-4">
-                <h1 className="text-5xl font-black font-serif text-gray-900 leading-tight" style={{fontFamily: 'Georgia, Times, serif'}}>
-                  {slide.headline}
-                </h1>
-                <p className="text-xl text-gray-700 mt-2 font-serif italic">{slide.subheadline}</p>
-              </div>
-
-              {/* Lead Story */}
-              <div className="bg-red-50 border-l-8 border-red-600 p-4 mb-4 shadow-md">
-                <div className="flex gap-4">
-                  <div className="flex-1">
-                    <div className="text-xs font-bold text-red-600 uppercase tracking-wider mb-1">Leading Story</div>
-                    <h2 className="text-2xl font-black font-serif text-gray-900 mb-1">{slide.leadStory.title}</h2>
-                    <div className="text-sm text-gray-600 mb-2 italic">{slide.leadStory.location}</div>
-                    <p className="text-base text-gray-800 leading-relaxed">{slide.leadStory.content}</p>
-                  </div>
-                  <div className="w-48 flex-shrink-0 bg-gray-900 text-white p-4 flex items-center justify-center">
-                    <p className="text-lg font-serif italic text-center">{slide.leadStory.pullQuote}</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Article Cards Grid */}
-              <div className="grid grid-cols-4 gap-3 mb-4">
-                {slide.articles.map((article, i) => (
-                  <div key={i} className="bg-white p-3 border border-gray-300 shadow-sm">
-                    <div className="text-xs font-bold text-blue-700 uppercase tracking-wider mb-1">{article.category}</div>
-                    <div className="text-base font-bold font-serif text-gray-900 mb-2">{article.title}</div>
-                    <div className="text-4xl font-black text-red-600 mb-1">{article.stat}</div>
-                    <p className="text-xs text-gray-700 mb-2 leading-relaxed">{article.content}</p>
-                    <div className="text-xs text-gray-500 italic border-t border-gray-200 pt-1">Source: {article.source}</div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Breaking News Ticker */}
-              <div className="bg-red-700 text-white p-3 flex items-center gap-4 shadow-lg">
-                <div className="bg-white text-red-700 font-black text-sm px-3 py-1 flex-shrink-0 animate-pulse">BREAKING</div>
-                <div className="text-sm font-medium overflow-hidden whitespace-nowrap">
-                  <span className="inline-block">{slide.breakingNews}</span>
-                </div>
-              </div>
-
-              {/* Bottom Stats */}
-              <div className="grid grid-cols-4 gap-4 mt-4 bg-gray-900 text-white p-4 rounded-lg">
-                {slide.stats.map((stat, i) => (
-                  <div key={i} className="text-center">
-                    <div className="text-3xl font-black text-amber-400">{stat.value}</div>
-                    <div className="text-xs uppercase tracking-wider text-gray-400">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        );
-
-      case 'market-infographic':
-        return (
-          <div className="bg-white h-full p-8 overflow-auto">
-            <div className="max-w-6xl mx-auto">
-              <h2 className="text-5xl font-black mb-6 text-gray-900">{slide.title}</h2>
-              
-              {/* TAM SAM SOM Horizontal */}
-              <div className="grid grid-cols-3 gap-4 mb-6">
-                <div className="bg-gradient-to-br from-blue-600 to-blue-500 rounded-xl p-5 text-white text-center shadow-lg">
-                  <div className="text-5xl font-black mb-1">{slide.marketData.TAM.value}</div>
-                  <div className="text-xl font-bold">TAM</div>
-                  <div className="text-sm opacity-80">{slide.marketData.TAM.label}</div>
-                </div>
-                <div className="bg-gradient-to-br from-green-600 to-green-500 rounded-xl p-5 text-white text-center shadow-lg">
-                  <div className="text-5xl font-black mb-1">{slide.marketData.SAM.value}</div>
-                  <div className="text-xl font-bold">SAM</div>
-                  <div className="text-sm opacity-80">{slide.marketData.SAM.label}</div>
-                </div>
-                <div className="bg-gradient-to-br from-orange-600 to-orange-500 rounded-xl p-5 text-white text-center shadow-lg">
-                  <div className="text-5xl font-black mb-1">{slide.marketData.SOM.value}</div>
-                  <div className="text-xl font-bold">SOM</div>
-                  <div className="text-sm opacity-80">{slide.marketData.SOM.label}</div>
-                </div>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4 mb-4">
-                {/* Target Segments */}
-                {slide.targetSegments && (
-                  <div className="bg-gradient-to-br from-indigo-50 to-purple-50 p-4 rounded-xl border-2 border-indigo-200">
-                    <h3 className="text-xl font-black mb-3 text-indigo-900">🎯 Target Market Segments</h3>
-                    <div className="space-y-2">
-                      {slide.targetSegments.map((seg, i) => (
-                        <div key={i} className="bg-white p-2 rounded-lg border border-indigo-100">
-                          <div className="flex justify-between items-center mb-1">
-                            <span className="font-bold text-base">{seg.segment}</span>
-                            <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${
-                              seg.priority === 'Critical' ? 'bg-red-100 text-red-700' :
-                              seg.priority === 'High' ? 'bg-orange-100 text-orange-700' : 'bg-blue-100 text-blue-700'
-                            }`}>{seg.priority}</span>
-                          </div>
-                          <div className="flex justify-between text-sm">
-                            <span className="text-indigo-600 font-bold">{seg.size} people</span>
-                            <span className="text-gray-500 italic">{seg.pain}</span>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Competitors */}
-                {slide.competitors && (
-                  <div className="bg-gradient-to-br from-red-50 to-orange-50 p-4 rounded-xl border-2 border-red-200">
-                    <h3 className="text-xl font-black mb-3 text-red-900">⚔️ Competition Analysis</h3>
-                    <div className="space-y-2">
-                      {slide.competitors.map((comp, i) => (
-                        <div key={i} className="bg-white p-2 rounded-lg border border-red-100">
-                          <div className="flex justify-between items-center">
-                            <span className="font-bold text-base">{comp.name}</span>
-                            <span className="text-red-600 font-bold text-base">{comp.price}</span>
-                          </div>
-                          <div className="text-sm text-gray-500">{comp.limitation}</div>
-                        </div>
-                      ))}
-                      <div className="bg-green-100 p-2 rounded-lg border-2 border-green-500">
-                        <div className="flex justify-between items-center">
-                          <span className="font-black text-green-800">OUR SOLUTION</span>
-                          <span className="font-black text-green-600">₹15,000</span>
-                        </div>
-                        <div className="text-sm text-green-700 font-bold">ISL-focused, On-device AI, 100% Private</div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              {/* Bottom Stats */}
-              <div className="bg-gray-900 text-white p-5 rounded-xl text-center text-lg">
-                <span className="text-amber-400 font-bold">{slide.govSupport}</span>
-                <span className="mx-4 opacity-50">|</span>
-                <span>Market growing at <span className="text-green-400 font-bold">{slide.cagr} CAGR</span></span>
-              </div>
-            </div>
-          </div>
-        );
-
-      case 'solution':
-        return (
-          <div className="bg-gradient-to-br from-blue-50 to-white h-full p-8 overflow-auto">
-            <div className="max-w-6xl mx-auto">
-              <h2 className="text-5xl font-black mb-3 text-gray-900">{slide.title}</h2>
-              <div className="text-2xl font-medium mb-6 text-blue-600">{slide.tagline}</div>
-              
-              {/* Features Grid */}
-              <div className="grid grid-cols-4 gap-3 mb-6">
-                {slide.features.map((feature, i) => (
-                  <div key={i} className="bg-white p-5 rounded-xl shadow-lg border-2 border-gray-100 hover:border-blue-300 transition-all">
-                    <feature.icon className="w-12 h-12 text-blue-600 mb-3" />
-                    <h3 className="text-xl font-black mb-2 text-gray-900">{feature.title}</h3>
-                    <p className="text-base text-gray-600">{feature.desc}</p>
-                  </div>
-                ))}
-              </div>
-
-              {/* Product Image */}
-              <div className="mb-6 flex justify-center">
-                <img 
-                  src="/ar_glasses_product.png" 
-                  alt="Sign Language to Speech AR Glasses" 
-                  className="max-h-80 rounded-2xl shadow-2xl border-4 border-blue-200"
-                />
-              </div>
-
-              {/* Prototype Blueprint Section */}
-              {slide.prototype && (
-                <div className="grid grid-cols-2 gap-4 mb-4">
-                  {/* Hardware Components */}
-                  <div className="bg-gradient-to-br from-slate-800 to-slate-900 text-white p-5 rounded-xl">
-                    <h3 className="text-xl font-black mb-4 flex items-center gap-2">
-                      🔧 Hardware Blueprint
-                    </h3>
-                    <div className="grid grid-cols-2 gap-3">
-                      {slide.prototype.components.map((comp, i) => (
-                        <div key={i} className="bg-white/10 p-3 rounded-lg">
-                          <div className="text-sm text-blue-300 uppercase tracking-wider">{comp.name}</div>
-                          <div className="text-base font-bold">{comp.spec}</div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* AI Stack */}
-                  <div className="bg-gradient-to-br from-purple-700 to-indigo-800 text-white p-5 rounded-xl">
-                    <h3 className="text-xl font-black mb-4 flex items-center gap-2">
-                      🧠 AI Stack
-                    </h3>
-                    <div className="space-y-3">
-                      {slide.prototype.aiStack.map((item, i) => (
-                        <div key={i} className="flex items-center gap-2 bg-white/10 p-3 rounded-lg">
-                          <span className="text-green-400 text-lg">✓</span>
-                          <span className="text-base">{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Specs Bar */}
-              <div className="bg-gray-900 text-white p-5 rounded-xl text-center">
-                <div className="text-sm uppercase tracking-widest mb-1 text-gray-400">Technical Specs</div>
-                <div className="text-xl font-bold">{slide.specs}</div>
-              </div>
-            </div>
-          </div>
-        );
-
-      case 'competitive-table':
-        return (
-          <div className="bg-white h-full p-12 overflow-auto">
-            <div className="max-w-7xl mx-auto">
-              <h2 className="text-6xl font-black mb-12 text-gray-900">{slide.title}</h2>
-              
-              <table className="w-full mb-8">
-                <thead>
-                  <tr className="bg-gray-900 text-white">
-                    <th className="p-4 text-left text-lg font-bold">Product</th>
-                    <th className="p-4 text-left text-lg font-bold">Price</th>
-                    <th className="p-4 text-left text-lg font-bold">Language</th>
-                    <th className="p-4 text-left text-lg font-bold">ISL Support</th>
-                    <th className="p-4 text-left text-lg font-bold">Direction</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {slide.competitors.map((comp, i) => (
-                    <tr key={i} className={`${i === slide.competitors.length - 1 ? 'bg-green-50 font-bold' : 'hover:bg-gray-50'} border-b-2 border-gray-200`}>
-                      <td className="p-4 text-lg">{comp.name}</td>
-                      <td className="p-4 text-lg">{comp.price}</td>
-                      <td className="p-4 text-lg">{comp.language}</td>
-                      <td className="p-4 text-lg">{comp.signLang}</td>
-                      <td className="p-4 text-lg">{comp.direction}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-
-              <div className="grid grid-cols-5 gap-4">
-                {slide.advantages.map((adv, i) => (
-                  <div key={i} className="bg-green-600 text-white p-4 rounded-xl text-center">
-                    <div className="text-lg font-bold">✓ {adv}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        );
-
-      case 'impact-stats':
-        return (
-          <div className="bg-gradient-to-br from-purple-50 to-white h-full p-12 overflow-auto">
-            <div className="max-w-6xl mx-auto">
-              <h2 className="text-6xl font-black mb-4 text-gray-900">{slide.title}</h2>
-              <div className="text-2xl mb-12 text-purple-600">{slide.subtitle}</div>
-              
-              <div className="grid grid-cols-2 gap-8 mb-12">
-                {slide.impactMetrics.map((impact, i) => (
-                  <div key={i} className={`bg-${impact.color}-50 border-l-8 border-${impact.color}-600 p-8 rounded-r-2xl`}>
-                    <div className="flex items-center gap-4 mb-4">
-                      <impact.icon className={`w-12 h-12 text-${impact.color}-600`} />
-                      <h3 className="text-3xl font-black">{impact.metric}</h3>
-                    </div>
-                    <div className="text-xl font-bold text-gray-700 mb-2">{impact.before}</div>
-                    <div className="text-3xl font-black text-green-600">{impact.after}</div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="bg-blue-600 text-white p-8 rounded-2xl text-center">
-                <div className="text-4xl font-black">{slide.beneficiaries}</div>
-              </div>
-            </div>
-          </div>
-        );
-
-      case 'tech-simple':
-        return (
-          <div className="bg-gray-50 h-full p-12 overflow-auto">
-            <div className="max-w-6xl mx-auto">
-              <h2 className="text-6xl font-black mb-12 text-gray-900">{slide.title}</h2>
-              
-              <div className="space-y-6 mb-12">
-                {slide.stack.map((layer, i) => (
-                  <div key={i} className="flex items-center gap-8">
-                    <div className="w-48 text-right">
-                      <div className="text-sm uppercase tracking-widest text-gray-500 font-bold">{layer.layer}</div>
-                    </div>
-                    <div className="flex-1 bg-white p-6 rounded-xl shadow-lg border-2 border-gray-200">
-                      <div className="text-2xl font-black mb-2">{layer.tech}</div>
-                      <div className="text-gray-600">✓ {layer.validation}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-2xl">
-                <div className="text-sm uppercase tracking-widest mb-2">Our Innovation</div>
-                <div className="text-3xl font-black">{slide.approach}</div>
-              </div>
-            </div>
-          </div>
-        );
-
-      case 'business-model':
-        return (
-          <div className="bg-gradient-to-br from-slate-50 to-blue-50 h-full p-8 overflow-auto">
-            <div className="max-w-6xl mx-auto">
-              <h2 className="text-5xl font-black mb-3 text-gray-900">{slide.title}</h2>
-              <p className="text-xl text-gray-600 mb-6">Triple-channel approach to sustainable growth</p>
-              
-              {/* Revenue Streams with Percentage Bars */}
-              <div className="grid grid-cols-3 gap-4 mb-6">
-                {slide.streams.map((stream, i) => (
-                  <div key={i} className="bg-white p-5 rounded-2xl border border-gray-200 shadow-lg hover:shadow-xl transition-all">
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="text-3xl">{stream.icon}</span>
-                      <h3 className="text-xl font-black text-gray-900">{stream.name}</h3>
-                    </div>
-                    <p className="text-base text-gray-600 mb-3">{stream.desc}</p>
-                    
-                    {/* Percentage Bar */}
-                    <div className="mb-3">
-                      <div className="flex justify-between text-base mb-1">
-                        <span className="font-bold text-blue-700">{stream.percentage}% of units</span>
-                        <span className="text-gray-500">{stream.cta}</span>
-                      </div>
-                      <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
-                        <div 
-                          className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all"
-                          style={{width: `${stream.percentage}%`}}
-                        ></div>
-                      </div>
-                    </div>
-                    
-                    <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-2">
-                      <div className="text-base font-bold text-green-700">{stream.highlight}</div>
-                    </div>
-                    <div className="text-sm text-gray-500">{stream.detail}</div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Sales Plan - NEW */}
-              {slide.salesPlan && (
-                <div className="bg-gradient-to-r from-amber-50 to-orange-50 p-4 rounded-xl border-2 border-amber-300 mb-4">
-                  <h3 className="text-lg font-black mb-3 text-amber-900">📈 3-Year Sales Plan</h3>
-                  <div className="grid grid-cols-3 gap-4">
-                    <div className="bg-white p-3 rounded-lg border border-amber-200 text-center">
-                      <div className="text-xs text-amber-600 font-bold uppercase">Year 1</div>
-                      <div className="text-2xl font-black text-gray-900">{slide.salesPlan.year1.units}</div>
-                      <div className="text-sm text-green-600 font-bold">{slide.salesPlan.year1.revenue}</div>
-                      <div className="text-xs text-gray-500 mt-1">{slide.salesPlan.year1.strategy}</div>
-                    </div>
-                    <div className="bg-white p-3 rounded-lg border border-amber-200 text-center">
-                      <div className="text-xs text-amber-600 font-bold uppercase">Year 2</div>
-                      <div className="text-2xl font-black text-gray-900">{slide.salesPlan.year2.units}</div>
-                      <div className="text-sm text-green-600 font-bold">{slide.salesPlan.year2.revenue}</div>
-                      <div className="text-xs text-gray-500 mt-1">{slide.salesPlan.year2.strategy}</div>
-                    </div>
-                    <div className="bg-white p-3 rounded-lg border border-amber-200 text-center">
-                      <div className="text-xs text-amber-600 font-bold uppercase">Year 3</div>
-                      <div className="text-2xl font-black text-gray-900">{slide.salesPlan.year3.units}</div>
-                      <div className="text-sm text-green-600 font-bold">{slide.salesPlan.year3.revenue}</div>
-                      <div className="text-xs text-gray-500 mt-1">{slide.salesPlan.year3.strategy}</div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Cost Breakdown Table */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white p-4 rounded-xl border border-gray-200 shadow">
-                  <h3 className="text-base font-black mb-2 text-gray-900 flex items-center gap-2">
-                    📉 Economies of Scale
-                  </h3>
-                  <div className="space-y-1">
-                    {slide.costBreakdown.map((item, i) => (
-                      <div key={i} className="flex justify-between items-center py-1 border-b border-gray-100 last:border-0">
-                        <span className="text-sm text-gray-700">{item.scale}</span>
-                        <span className="text-base font-black text-blue-600">{item.cost}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Key Metrics */}
-                <div className="bg-gradient-to-br from-indigo-600 to-purple-700 p-4 rounded-xl text-white shadow">
-                  <h3 className="text-base font-black mb-3 flex items-center gap-2">
-                    📊 Key Metrics
-                  </h3>
-                  <div className="grid grid-cols-3 gap-3 text-center">
-                    <div>
-                      <div className="text-2xl font-black">{slide.metrics.breakeven}</div>
-                      <div className="text-xs uppercase tracking-wider opacity-80">Break-even</div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-black">{slide.metrics.margin}</div>
-                      <div className="text-xs uppercase tracking-wider opacity-80">Margin</div>
-                    </div>
-                    <div>
-                      <div className="text-2xl font-black">{slide.metrics.year3Revenue}</div>
-                      <div className="text-xs uppercase tracking-wider opacity-80">Year 3</div>
-                    </div>
-                  </div>
-                  <div className="mt-3 pt-2 border-t border-white/20 text-center">
-                    <div className="text-xs opacity-80">vs. Human Interpreters</div>
-                    <div className="text-sm font-bold">{slide.competitorCost}</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-
-      case 'timeline':
-        return (
-          <div className="bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900 h-full p-8 overflow-auto text-white">
-            <div className="max-w-7xl mx-auto">
-              {/* Header */}
-              <div className="text-center mb-8">
-                <h2 className="text-5xl font-black mb-3 bg-gradient-to-r from-white via-blue-200 to-purple-200 text-transparent bg-clip-text">{slide.title}</h2>
-                <p className="text-xl text-indigo-300">{slide.subtitle}</p>
-              </div>
-
-              {/* Horizontal Timeline */}
-              <div className="relative mb-8">
-                {/* Timeline Line */}
-                <div className="absolute top-10 left-0 right-0 h-2 bg-gradient-to-r from-green-500 via-blue-500 via-indigo-500 to-amber-500 rounded-full shadow-lg"></div>
-                
-                <div className="grid grid-cols-4 gap-6 relative">
-                  {slide.phases.map((phase, i) => (
-                    <div key={i} className="flex flex-col items-center">
-                      {/* Node Circle */}
-                      <div className={`w-20 h-20 rounded-full flex items-center justify-center text-4xl z-10 shadow-2xl border-4 border-slate-800
-                        ${phase.status === 'In Progress' ? 'bg-gradient-to-br from-green-400 to-green-600 ring-4 ring-green-400/40 animate-pulse' : 
-                          phase.status === 'Goal' ? 'bg-gradient-to-br from-amber-400 to-amber-600' : 'bg-gradient-to-br from-indigo-400 to-indigo-600'}`}>
-                        {phase.icon}
-                      </div>
-                      
-                      {/* Content Card */}
-                      <div className={`mt-5 w-full bg-white/10 backdrop-blur-lg p-5 rounded-2xl border-2
-                        ${phase.status === 'In Progress' ? 'border-green-500 shadow-green-500/30 shadow-xl' : 
-                          phase.status === 'Goal' ? 'border-amber-500 shadow-amber-500/30 shadow-xl' : 'border-indigo-400/50 shadow-indigo-500/20 shadow-lg'}`}>
-                        
-                        <div className="flex items-center justify-between mb-3">
-                          <span className={`text-sm font-bold px-4 py-1.5 rounded-full
-                            ${phase.status === 'In Progress' ? 'bg-green-500 text-white' : 
-                              phase.status === 'Goal' ? 'bg-amber-500 text-slate-900' : 'bg-indigo-500/70'}`}>{phase.status}</span>
-                          <span className="text-base font-black text-indigo-200">{phase.time}</span>
-                        </div>
-                        
-                        <h3 className="text-xl font-black mb-2">{phase.phase}</h3>
-                        <p className="text-sm text-indigo-200 mb-3">{phase.task}</p>
-                        
-                        <div className="space-y-2">
-                          {phase.details.map((detail, j) => (
-                            <div key={j} className="text-sm bg-white/10 px-3 py-2 rounded-xl flex items-center gap-2">
-                              <span className="text-green-400 text-lg">✓</span> {detail}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Bottom Section: Milestones & Deliverables */}
-              <div className="grid grid-cols-2 gap-6 mb-6">
-                {/* Execution Milestones */}
-                <div className="bg-gradient-to-br from-blue-600/30 to-indigo-600/20 p-6 rounded-2xl border border-blue-500/40 backdrop-blur-lg">
-                  <h3 className="text-xl font-black mb-4 flex items-center gap-3">
-                    <span className="w-10 h-10 bg-blue-500 rounded-xl flex items-center justify-center text-xl">🎯</span>
-                    Execution Milestones
-                  </h3>
-                  <div className="grid grid-cols-2 gap-3">
-                    {slide.resources?.milestones?.map((item, i) => (
-                      <div key={i} className="bg-white/10 px-4 py-3 rounded-xl flex items-center gap-3">
-                        <span className="text-2xl">{item.icon}</span>
-                        <div className="flex-1">
-                          <div className="text-sm font-bold">{item.item}</div>
-                          <div className="text-xs text-indigo-300">{item.target}</div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Deliverables */}
-                <div className="bg-gradient-to-br from-purple-600/30 to-indigo-600/20 p-6 rounded-2xl border border-purple-500/40 backdrop-blur-lg">
-                  <h3 className="text-xl font-black mb-4 flex items-center gap-3">
-                    <span className="w-10 h-10 bg-purple-500 rounded-xl flex items-center justify-center text-xl">🎯</span>
-                    Key Deliverables
-                  </h3>
-                  <div className="space-y-3">
-                    {slide.deliverables?.map((item, i) => (
-                      <div key={i} className="flex items-center gap-3 bg-white/10 px-4 py-3 rounded-xl">
-                        <span className="text-green-400 text-xl">✓</span>
-                        <span className="text-base font-medium">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Vision Timeline Boxes - Improved */}
-              {slide.vision && (
-                <div className="grid grid-cols-3 gap-6">
-                  <div className="bg-gradient-to-br from-blue-500 to-blue-700 p-6 rounded-2xl text-center shadow-2xl border-2 border-blue-400/40 transform hover:scale-105 transition-all">
-                    <div className="text-4xl mb-3">🚀</div>
-                    <div className="text-sm uppercase tracking-widest text-blue-200 mb-2 font-bold">8 Months</div>
-                    <div className="text-base font-bold leading-snug">{slide.vision.now}</div>
-                  </div>
-                  <div className="bg-gradient-to-br from-green-500 to-green-700 p-6 rounded-2xl text-center shadow-2xl border-2 border-green-400/40 transform hover:scale-105 transition-all">
-                    <div className="text-4xl mb-3">📈</div>
-                    <div className="text-sm uppercase tracking-widest text-green-200 mb-2 font-bold">Year 3</div>
-                    <div className="text-base font-bold leading-snug">{slide.vision.year3}</div>
-                  </div>
-                  <div className="bg-gradient-to-br from-purple-500 to-purple-700 p-6 rounded-2xl text-center shadow-2xl border-2 border-purple-400/40 transform hover:scale-105 transition-all">
-                    <div className="text-4xl mb-3">🌍</div>
-                    <div className="text-sm uppercase tracking-widest text-purple-200 mb-2 font-bold">Year 5+</div>
-                    <div className="text-base font-bold leading-snug">{slide.vision.year5}</div>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        );
-
-      case 'government-fit':
-        return (
-          <div className="bg-white h-full p-12 overflow-auto">
-            <div className="max-w-6xl mx-auto">
-              <h2 className="text-6xl font-black mb-12 text-gray-900">{slide.title}</h2>
-              
-              <div className="grid grid-cols-2 gap-8 mb-8">
-                <div className="bg-blue-50 p-8 rounded-2xl border-2 border-blue-300">
-                  <h3 className="text-3xl font-black mb-4 text-blue-900">{slide.adipScheme.name}</h3>
-                  <div className="space-y-3 text-lg">
-                    <p><strong>Coverage:</strong> {slide.adipScheme.coverage}</p>
-                    <p><strong>Eligibility:</strong> {slide.adipScheme.eligibility}</p>
-                    <p><strong>Reach:</strong> {slide.adipScheme.reach}</p>
-                  </div>
-                  <div className="mt-6 bg-green-600 text-white p-4 rounded-xl text-center">
-                    <div className="text-2xl font-black">{slide.adipScheme.perfectFit}</div>
-                  </div>
-                </div>
-
-                <div className="bg-orange-50 p-8 rounded-2xl border-2 border-orange-300">
-                  <h3 className="text-3xl font-black mb-4 text-orange-900">{slide.accessibleIndia.campaign}</h3>
-                  <p className="text-xl mb-4"><strong>Biggest Gap:</strong></p>
-                  <p className="text-2xl font-bold text-red-600 mb-4">{slide.accessibleIndia.biggestGap}</p>
-                  <div className="bg-blue-600 text-white p-4 rounded-xl text-center">
-                    <div className="text-2xl font-black">{slide.accessibleIndia.ourRole}</div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-purple-50 p-6 rounded-xl border-2 border-purple-200">
-                <div className="text-sm uppercase tracking-widest text-purple-600 font-bold mb-2">Funding Roadmap</div>
-                <div className="text-2xl font-black">{slide.additionalFunding}</div>
-              </div>
-            </div>
-          </div>
-        );
-
-      case 'metrics':
-        return (
-          <div className="bg-gray-50 h-full p-12 overflow-auto">
-            <div className="max-w-6xl mx-auto">
-              <h2 className="text-6xl font-black mb-12 text-gray-900">{slide.title}</h2>
-              
-              <div className="grid grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-3xl font-black mb-6 text-blue-600">Technical KPIs</h3>
-                  <div className="space-y-4">
-                    {slide.technical.map((kpi, i) => (
-                      <div key={i} className="bg-white p-6 rounded-xl shadow-md border-2 border-gray-200">
-                        <div className="flex justify-between items-start mb-2">
-                          <div className="text-xl font-black">{kpi.metric}</div>
-                          <div className="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-bold">{kpi.timeline}</div>
-                        </div>
-                        <div className="flex gap-4">
-                          <div className="text-gray-600">Current: <span className="font-bold">{kpi.current}</span></div>
-                          <div className="text-green-600">Target: <span className="font-bold">{kpi.target}</span></div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="text-3xl font-black mb-6 text-purple-600">Social KPIs</h3>
-                  <div className="space-y-4">
-                    {slide.social.map((kpi, i) => (
-                      <div key={i} className="bg-white p-6 rounded-xl shadow-md border-2 border-gray-200">
-                        <div className="text-xl font-black mb-2">{kpi.metric}</div>
-                        <div className="text-3xl font-black text-purple-600 mb-2">{kpi.target}</div>
-                        <div className="text-gray-600 text-sm">{kpi.method}</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        );
-
-      case 'ask':
-        return (
-          <div className="bg-gradient-to-br from-green-50 to-white h-full p-8 overflow-auto">
-            <div className="max-w-6xl mx-auto">
-              <h2 className="text-5xl font-black mb-6 text-gray-900">{slide.title}</h2>
-              
-              <div className="grid grid-cols-2 gap-6">
-                {/* Left Column: Budget Breakdown */}
-                <div className="bg-white p-6 rounded-2xl shadow-xl border-4 border-green-500">
-                  <h3 className="text-2xl font-black mb-4 text-green-700">💰 Budget Allocation</h3>
-                  <div className="space-y-3">
-                    {slide.useOfFunds.map((item, i) => {
-                      const colors = [
-                        'bg-gradient-to-r from-purple-100 to-purple-50 border-l-4 border-purple-500',
-                        'bg-gradient-to-r from-blue-100 to-blue-50 border-l-4 border-blue-500',
-                        'bg-gradient-to-r from-amber-100 to-amber-50 border-l-4 border-amber-500',
-                        'bg-gradient-to-r from-pink-100 to-pink-50 border-l-4 border-pink-500',
-                        'bg-gradient-to-r from-cyan-100 to-cyan-50 border-l-4 border-cyan-500'
-                      ];
-                      const icons = ['📜', '🔧', '🛠️', '🖨️', '📦'];
-                      return (
-                        <div key={i} className={`flex justify-between items-center p-4 rounded-xl shadow-md ${colors[i % colors.length]}`}>
-                          <div className="flex items-center gap-3 flex-1">
-                            <span className="text-2xl">{icons[i % icons.length]}</span>
-                            <div>
-                              <div className="text-lg font-black text-gray-800">
-                                <span className="bg-yellow-300 px-2 py-0.5 rounded">{item.category}</span>
-                              </div>
-                              <div className="text-sm text-gray-600">{item.detail}</div>
-                            </div>
-                          </div>
-                          <div className="text-right">
-                            <div className="text-2xl font-black text-green-600">{item.amount}</div>
-                            <div className="text-sm font-bold text-gray-500 bg-white/50 px-2 py-0.5 rounded-full">{item.percent}%</div>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                  <div className="border-t-4 border-green-400 mt-4 pt-4 flex justify-between items-center bg-green-50 -mx-6 -mb-6 px-6 py-4 rounded-b-xl">
-                    <div className="text-2xl font-black text-green-800">TOTAL</div>
-                    <div className="text-4xl font-black text-green-600">{slide.amount}</div>
-                  </div>
-                </div>
-
-                {/* Right Column: Why & How */}
-                <div className="space-y-4">
-                  {/* Why We Need Support */}
-                  {slide.whyWeNeedSupport && (
-                    <div className="bg-amber-50 p-5 rounded-xl border-2 border-amber-400">
-                      <h3 className="text-lg font-black mb-3 text-amber-800">❓ Why We Need Support</h3>
-                      <ul className="text-sm space-y-2">
-                        {slide.whyWeNeedSupport.map((item, i) => (
-                          <li key={i} className="flex items-start gap-2">
-                            <span className="text-amber-600 text-lg">•</span>
-                            <span className="text-gray-700">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {/* How We Will Use */}
-                  {slide.howWeWillUse && (
-                    <div className="bg-blue-50 p-5 rounded-xl border-2 border-blue-400">
-                      <h3 className="text-lg font-black mb-3 text-blue-800">🎯 How We Will Use Funds</h3>
-                      <ul className="text-sm space-y-2">
-                        {slide.howWeWillUse.map((item, i) => (
-                          <li key={i} className="flex items-start gap-2">
-                            <span className="text-green-500 text-lg">✓</span>
-                            <span className="text-gray-700">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-
-                  {/* Terms */}
-                  {slide.terms && (
-                    <div className="bg-purple-50 p-5 rounded-xl border-2 border-purple-400">
-                      <h3 className="text-lg font-black mb-3 text-purple-800">📋 Terms & Commitment</h3>
-                      <ul className="text-sm space-y-2">
-                        {slide.terms.map((item, i) => (
-                          <li key={i} className="flex items-start gap-2">
-                            <span className="text-purple-600 text-lg">•</span>
-                            <span className="text-gray-700">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              {/* Commitment Statement */}
-              {slide.commitment && (
-                <div className="mt-6 bg-gradient-to-r from-green-600 to-emerald-600 text-white p-5 rounded-2xl text-center shadow-xl">
-                  <div className="text-lg font-bold">{slide.commitment}</div>
-                </div>
-              )}
-            </div>
-          </div>
-        );
-
-      case 'vision':
-        return (
-          <div className="bg-gradient-to-br from-slate-900 to-blue-900 text-white h-full flex flex-col items-center justify-center p-12">
-            <div className="max-w-5xl text-center">
-              <div className="text-6xl md:text-7xl font-black mb-8 leading-tight">
-                {slide.title}
-              </div>
-              <div className="text-xl md:text-2xl font-light mb-12 italic leading-tight text-blue-200">
-                {slide.quote}
-              </div>
-
-              <div className="text-xl md:text-2xl font-bold mb-12 leading-relaxed text-white max-w-5xl mx-auto">
-                {slide.callToAction}
-              </div>
-
-              <div className="bg-white bg-opacity-10 p-6 rounded-2xl backdrop-blur-md inline-block mb-8">
-                <div className="text-sm uppercase tracking-widest text-blue-300 mb-4">Contact Us</div>
-                <div className="space-y-3 text-xl">
-                  <div className="flex items-center justify-center gap-3">
-                    <span className="text-blue-300">📧</span>
-                    <span className="font-medium">{slide.contact.email}</span>
-                  </div>
-                  <div className="flex items-center justify-center gap-3">
-                    <span className="text-green-300">📞</span>
-                    <span className="font-medium">{slide.contact.phone}</span>
-                  </div>
+              <div className="bg-gradient-to-r from-blue-600/50 to-purple-600/50 p-8 rounded-2xl border border-blue-400/30 text-center relative overflow-hidden mt-auto">
+                <div className="relative z-10">
+                  <div className="text-sm font-bold uppercase tracking-widest text-blue-200 mb-3">Long-Term Vision</div>
+                  <div className="text-2xl font-bold leading-relaxed">{slide.vision}</div>
                 </div>
               </div>
             </div>
@@ -1394,14 +729,40 @@ const ProfessionalPresentation = () => {
         );
 
       default:
-        return <div className="p-12">Slide type not implemented</div>;
+        return <div className="p-12 text-white">Slide type not implemented: {slide.type}</div>;
     }
   };
 
+  if (isPrintView) {
+    return (
+      <div className="bg-black min-h-screen">
+        <style>{`
+          @media print {
+            .no-print { display: none !important; }
+            .print-break { break-after: page; page-break-after: always; }
+          }
+        `}</style>
+        <button
+          onClick={() => setIsPrintView(false)}
+          className="fixed top-6 right-6 z-50 bg-white p-3 rounded-full shadow-xl hover:bg-gray-100 transition-all no-print"
+        >
+          <X className="w-6 h-6 text-gray-900" />
+        </button>
+        <div className="flex flex-col">
+          {slides.map((slide, index) => (
+            <div key={index} className="w-full h-screen relative print-break overflow-hidden">
+              {renderSlide(slide)}
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="relative w-full h-screen bg-black overflow-hidden">
+    <div className="relative w-full h-screen bg-black overflow-hidden font-sans">
       {/* Slide Content */}
-      <div className="w-full h-full">
+      <div className="w-full h-full transition-opacity duration-300">
         {renderSlide(slides[currentSlide])}
       </div>
 
@@ -1429,6 +790,16 @@ const ProfessionalPresentation = () => {
           >
             <ChevronRight className="w-6 h-6 text-gray-900" />
           </button>
+
+          <div className="w-px h-8 bg-white/30 mx-2"></div>
+
+          <button
+            onClick={() => setIsPrintView(true)}
+            className="bg-white bg-opacity-90 p-4 rounded-full hover:bg-opacity-100 transition-all shadow-2xl"
+            title="Print / Save PDF"
+          >
+            <Printer className="w-6 h-6 text-gray-900" />
+          </button>
         </div>
       </div>
 
@@ -1438,11 +809,11 @@ const ProfessionalPresentation = () => {
           <button
             key={i}
             onClick={() => setCurrentSlide(i)}
-            className={`w-3 h-3 rounded-full transition-all ${
-              i === currentSlide 
-                ? 'bg-white scale-125' 
-                : 'bg-white bg-opacity-40 hover:bg-opacity-70'
-            }`}
+            title={`Slide ${i + 1}`}
+            className={`w-3 h-3 rounded-full transition-all ${i === currentSlide
+              ? 'bg-blue-400 scale-125 shadow-[0_0_10px_rgba(96,165,250,0.8)]'
+              : 'bg-white bg-opacity-40 hover:bg-opacity-70'
+              }`}
           />
         ))}
       </div>
