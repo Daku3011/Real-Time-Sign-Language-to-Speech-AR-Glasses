@@ -12,6 +12,7 @@ pyttsx3>=2.90
 # Optical Character Recognition
 pytesseract>=0.3.10
 
-# Optional: For advanced features
-# tensorflow-lite>=2.14.0  # If using TensorFlow Lite models
-# pillow>=10.0.0  # Additional image processing
+# AI Sign Language Interpretation (Google Gemini)
+google-generativeai>=0.8.0
+python-dotenv>=1.0.0
+Pillow>=10.0.0

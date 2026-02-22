@@ -80,6 +80,32 @@ HUD_TEXT_COLOR_RECORDING = (0, 0, 255)  # Red for recording
 HUD_TEXT_COLOR_COUNTDOWN = (0, 255, 255)  # Yellow for countdown
 
 # ============================================================================
+# SENTENCE ASSEMBLY CONFIGURATION
+# ============================================================================
+
+SENTENCE_CHAR_PAUSE = 1.0  # Max seconds between chars in same word
+SENTENCE_WORD_PAUSE = 2.0  # Seconds of pause to insert a space (new word)
+SENTENCE_FINALIZE_PAUSE = 3.5  # Seconds of pause to finalize and speak sentence
+SENTENCE_MIN_CONFIDENCE = 0.75  # Min confidence to accept a character detection
+
+# ============================================================================
+# GEMINI AI CONFIGURATION
+# ============================================================================
+
+import os
+try:
+    from dotenv import load_dotenv
+    load_dotenv(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env"))
+except ImportError:
+    pass
+
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")  # Set in .env file
+GEMINI_MODEL = "gemini-2.5-flash"  # Gemini model to use
+GEMINI_MAX_FRAMES = 5  # Number of frames to capture per AI analysis
+GEMINI_CAPTURE_INTERVAL = 0.4  # Seconds between frame captures
+GEMINI_COOLDOWN = 3.0  # Min seconds between API calls
+
+# ============================================================================
 # DATA PATHS
 # ============================================================================
 
