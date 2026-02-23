@@ -570,15 +570,13 @@ Together, these partnerships can transform an innovative concept into a practica
 
 ### Appendix C: Contact and Collaboration
 
-Project Lead: [To be specified]
-Institution: [To be specified]
-Email: [To be specified]
-Project Website: [To be developed]
+**Project Team:** Inno8
+**Team Members:** Dwarkesh Ramani (Lead/Backend), Jenil Gajera (Hardware), Jenny Patel (Frontend/UI), Akifa Shaikh (Business), Drashtant Mevada (Business)
+**Institution:** SCET Surat, mentored by Prof. Pariza Kamboj
 
-For collaboration inquiries, partnership opportunities, or community participation, please contact through the above channels.
 
 ---
 
-**Document Version:** 1.0  
-**Last Updated:** January 2026  
-**Status:** SSIP Proposal Submission
+**Document Version:** 2.0  
+**Last Updated:** February 2026  
+**Status:** SSIP Round 2 Pitch Deck Documentation
