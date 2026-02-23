@@ -570,9 +570,9 @@ Together, these partnerships can transform an innovative concept into a practica
 
 ### Appendix C: Contact and Collaboration
 
-**Project Team:** Inno8
+**Project Team:** Inno8\
 **Team Members:** Dwarkesh Ramani (Lead/Backend), Jenil Gajera (Hardware), Jenny Patel (Frontend/UI), Akifa Shaikh (Business), Drashtant Mevada (Business)
-**Institution:** SCET Surat, mentored by Prof. Pariza Kamboj
+**Institution:** SCET Surat, mentored by Prof. Dr. Pariza Kamboj
 
 
 ---
