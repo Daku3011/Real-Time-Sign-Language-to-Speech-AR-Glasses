@@ -77,3 +77,4 @@ src/__pycache__/tts_engine.cpython-310.pyc
 
 #API keys
 .env
+test.txt

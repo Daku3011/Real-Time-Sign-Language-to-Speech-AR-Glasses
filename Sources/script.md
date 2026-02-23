@@ -133,7 +133,7 @@
 > 
 > First, acquisition by MedTech giants like Cochlear wanting our ISL intellectual property to enter India. Second, licensing our hyper-efficient on-device ISL engine to smartphone and smartglass OEMs like Meta. Or third, operating as a sustainable, highly-profitable social enterprise fueled by government CSR and ADA compliance.
 > 
-> In 5 years, this will be the regional standard for the 15 million IPSL users across South Asia. We invite you to be part of the technology that breaks the silence. Thank you."
+> In 5 years, this will be the regional standard for the 15 million ISL users across South Asia. We invite you to be part of the technology that breaks the silence. Thank you."
 
 ---
 
@@ -147,9 +147,9 @@
 | 4 | Competitive Analysis | Akifa | 2 min |
 | 5 | Market Opportunity | Akifa | 1 min |
 | 6 | Product Overview (UX) | Jenny | 1.5 min |
-| 7 | Product (Tech Specs) | Jenil | 1.5 min |
-| 8 | Market Analysis | Akifa | 2 min |
+| 7 | Product Deep Dive (Tech Specs) | Jenil | 1.5 min |
+| 8 | Target Segments & Regulatory Drivers | Akifa | 2 min |
 | 9 | Org. & Team | Jenny | 1 min |
 | 10 | Financial Analysis | Dwarkesh | 1.5 min |
-| 11 | Funding Request | Jenny | 1.5 min |
-| 12 | Exit Strategy | Dwarkesh | 1 min |
+| 11 | Funding Request | Jenny | 0.5 min |
+| 12 | Exit | Dwarkesh | 1 min |

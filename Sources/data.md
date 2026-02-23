@@ -483,37 +483,37 @@ Battery Life Achieved: [X] hours
 
 ### **Slide-by-Slide Data Integration:**
 
-**Slide 3: Problem Statement**
+**Slide 2: Problem Statement**
 
 - Use: Census 2011 statistics
 - Visual: Pie chart of disability distribution
 - Quote: "5.07 million hearing impaired + 1.99 million speech impaired = 7 million people facing communication barriers"
 
-**Slide 4: Market Gap**
+**Slide 4: Competitive Analysis**
 
 - Use: Interpreter shortage data (NAD)
 - Use: Existing product prices comparison table
 - Visual: Bar chart showing cost gap
 
-**Slide 5: Our Solution**
+**Slide 6: Our Solution**
 
 - Use: Technical benchmarks (MediaPipe, TensorFlow Lite)
 - Visual: Your prototype photos
 - Data: "₹15,000 device vs ₹40,000-₹2,00,000 alternatives"
 
-**Slide 8: Technical Validation**
+**Slide 7: Technical Validation**
 
 - Use: SignGlass research paper stats
 - Use: Your own testing results
 - Visual: Accuracy comparison chart
 
-**Slide 11: Social Impact**
+**Slide 8: Social Impact**
 
 - Use: ADIP scheme eligibility data
 - Use: SDG alignment
 - Quote: Rights of Persons with Disabilities Act provisions
 
-**Slide 13: Market Opportunity**
+**Slide 5: Market Opportunity**
 
 - Use: Assistive tech market size
 - Use: Government scheme budget allocations
