@@ -43,7 +43,7 @@ const ProductSlide2 = () => (
                 {/* Prototype Results */}
                 <div className="animate-fade-up delay-4 flex flex-col justify-center" style={{ background: '#fff', borderRadius: '12px', padding: '24px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-md)' }}>
                     <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '19px', color: 'var(--charcoal)', marginBottom: '16px' }}>
-                        Current Prototype Results
+                        Prototype Results
                     </h3>
                     {[
                         { metric: 'Recognition Accuracy', value: '85%', target: 'Target: 90%+ in 6 months' },

@@ -21,7 +21,7 @@ const SolutionSlide = () => (
                     { icon: '👓', title: 'Hands-Free OS', desc: 'Wearable lightweight AR glasses — both hands remain entirely free for natural Indian Sign Language signing.', color: 'var(--teal)', textShadow: '0 0 1px rgba(0,180,216,0.3)' },
                     { icon: '🔒', title: 'Absolute Privacy', desc: '100% processing happens on-device. No cloud video uploads, no internet dependency required for translation.', color: 'var(--success)' },
                     { icon: '🇮🇳', title: 'ISL-Native', desc: 'Purpose-built specifically for the grammatical structure and nuances of Indian Sign Language (ISL), not ASL.', color: 'var(--gold)' },
-                    { icon: '⚖️', title: '100% Subsidizable', desc: 'Targeting a ₹15,000 price ceiling to perfectly fit the Govt ADIP scheme — making it free for BPL consumers.', color: 'var(--alert)' },
+                    { icon: '🧠', title: 'Context-Aware AI', desc: 'Custom sentence assembly algorithms recognize continuous gestures and linguistic nuances for fluid, accurate sentence construction.', color: 'var(--alert)' },
                 ].map((f, i) => (
                     <div key={i} className="glass-card flex flex-col items-start" style={{
                         padding: '24px', borderLeft: `4px solid ${f.color}`,

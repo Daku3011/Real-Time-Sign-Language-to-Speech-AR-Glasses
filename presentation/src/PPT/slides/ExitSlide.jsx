@@ -34,11 +34,11 @@ const ExitSlide = () => (
                     fontWeight: 500, lineHeight: 1.6, maxWidth: '600px', marginBottom: '24px',
                 }}>
                     Communication is a fundamental right.<br />
-                    <strong style={{ color: 'var(--teal)' }}>With ₹2L, we give voice to 18 million Indians — for the first time.</strong>
+                    <strong style={{ color: 'var(--teal)' }}>With this glasses , we give voice to 18 million Indians — for the first time.</strong>
                 </p>
 
                 {/* Contact */}
-                <div className="animate-fade-up delay-4 flex flex-wrap items-center justify-center gap-4">
+                {/* <div className="animate-fade-up delay-4 flex flex-wrap items-center justify-center gap-4">
                     {[
                         { label: 'Email', value: 'rdwarkesh1300@gmail.com', icon: '📧' },
                         { label: 'Phone', value: '+91 90999 35366', icon: '📱' },
@@ -56,13 +56,13 @@ const ExitSlide = () => (
                             </div>
                         </div>
                     ))}
-                </div>
+                </div> */}
             </div>
 
             {/* Mentor */}
             <div className="animate-fade-up delay-5">
                 <p style={{ fontSize: '17px', color: 'var(--slate)', marginBottom: '16px' }}>
-                    Mentor: <strong style={{ color: 'var(--charcoal)' }}>Prof. Dr. Pariza Kamboj</strong> &nbsp;|&nbsp; SSIP Student Innovation Grant
+                    Mentor: <strong style={{ color: 'var(--charcoal)' }}>Prof. Dr. Pariza Kamboj</strong> &nbsp;|&nbsp; SCET, Surat 
                 </p>
                 {/* Team names */}
                 <div className="flex flex-wrap items-center justify-center gap-3">
