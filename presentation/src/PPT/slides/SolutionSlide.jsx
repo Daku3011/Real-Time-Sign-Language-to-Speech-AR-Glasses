@@ -5,7 +5,7 @@ const SolutionSlide = () => (
         <div style={{ padding: 'var(--slide-py) var(--slide-px)', maxWidth: '1200px', margin: '0 auto', paddingBottom: '100px' }}>
 
             <div className="mb-2 animate-fade-up delay-1">
-                <span style={{ color: 'var(--teal)', textShadow: 'var(--shadow-glow)', fontSize: '16px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Slide 6 of 12</span>
+                <span style={{ color: 'var(--teal)', textShadow: 'var(--shadow-glow)', fontSize: '16px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Slide 7 of 12</span>
             </div>
             <h2 className="animate-fade-up delay-1 gradient-text-primary" style={{
                 fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 'clamp(32px, 4vw, 50px)',
@@ -90,7 +90,7 @@ const SolutionSlide = () => (
                 textAlign: 'center',
             }}>
                 <span style={{ fontSize: '16px', fontWeight: 600, color: 'var(--success)' }}>
-                    ✓ Validation: In 15 interviews with deaf students &amp; educators in Surat, 80% expressed daily usage intent.
+                    🎯 Future Validation: Plan to test with 15+ deaf students &amp; educators in Surat to achieve 80%+ daily usage intent.
                 </span>
             </div>
         </div>

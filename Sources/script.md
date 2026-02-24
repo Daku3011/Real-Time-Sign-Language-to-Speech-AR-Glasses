@@ -104,7 +104,7 @@ Join us in bringing a voice to the silent."
 
 How does the device actually feel to use? The experience is built on a seamless, 3-step natural interaction. First, the deaf user simply wears the lightweight glasses and signs naturally with both hands free. Second, the built-in camera processes the gestures entirely offline ensuring 100% privacy. Third, the translation is instantly spoken aloud via bone-conduction audio transducers, allowing the hearing person to understand immediately. 
 
-In our validation interviews with deaf students in Surat, 80% expressed daily usage intent because of this frictionless, natural design."
+In our upcoming validation phase, we plan to interview 15+ deaf students in Surat, with the goal of verifying that this frictionless, natural design will lead to high daily usage intent."
 
 ### Slide 9: Organisation & Team (0.5 mins)
 **[Jenny]**
@@ -112,9 +112,9 @@ In our validation interviews with deaf students in Surat, 80% expressed daily us
 
 ### Slide 11: Funding Request (1 min)
 **[Jenny]**
-"To trigger this growth, we are asking for an SSIP Grant of ₹1,50,000. 
+"To trigger this growth, we are asking for an SSIP Grant of ₹2,00,000. 
 
-This funding completes our transition from desktop software to standalone wearable prototypes. 33% is allocated for securing our IP and filing patents, 30% for dedicated edge-hardware like micro-displays and compute modules, and the remainder for 3D casting and field testing. This small seed ensures we lock down our intellectual property and get units onto the faces of 20 test users."
+This funding completes our transition from desktop software to standalone wearable prototypes. Specifically, we have allocated ₹55,000 for securing our IP and filing patents, and the rest for building 2 high-fidelity prototypes. This includes the dedicated edge-hardware like micro-displays, compute modules, and 3D casting. This small seed ensures we lock down our intellectual property and get these initial units onto the faces of test users."
 
 *(Jenny passes to Jenil)*
 **[Jenny]** "And to prove all of this works, Jenil will now take you through the tech specs and a Live Demo."

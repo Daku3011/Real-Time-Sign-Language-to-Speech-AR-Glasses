@@ -197,7 +197,7 @@ const ProfessionalPresentation = () => {
     {
       type: 'funding-request',
       title: 'Our Ask: Funding Request',
-      total: '₹1,50,000',
+      total: '₹2,00,000',
       purpose: 'To transition from desktop MVP to 5 fully functional wearable prototypes and secure IP.',
       allocation: [
         { category: 'Patent & IP', amount: '₹50,000', percent: 33 },

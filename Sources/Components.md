@@ -4,6 +4,19 @@
 
 ---
 
+## **CURRENT PROTOTYPE V2 AS-BUILT**
+![Current Prototype V2](/mnt/Dwarkesh/SSIP/presentation/public/ar_glasses_product.png)
+
+This is the exact component stack being utilized in the **Prototype V2** (as highlighted in the presentation's Product Deep Dive slide):
+* **Processing:** Raspberry Pi Zero 2 W
+* **Vision System:** Pi Camera v2 (IMX219)
+* **Display System:** OLED Microdisplay
+* **Audio Output:** Bone Conduction Audio
+* **Power:** 2500mAh LiPo Battery
+* **Frame:** TR-90 Lightweight Frame
+
+---
+
 ## **CATEGORY 1: CORE PROCESSING UNIT**
 
 | Component               | GOOD (Budget)                                                                                                                                                          | BEST (Recommended)                                                                                                                                              | PERFECT (Premium)                                                                                                                                        |
@@ -245,7 +258,7 @@
 
 ---
 
-### **⭐ BEST TIER (Recommended for SSIP) - ₹1,50,000**
+### **⭐ BEST TIER (Recommended for SSIP) - ₹2,00,000**
 
 | Category                        | Cost    |
 | ------------------------------- | ------- |
@@ -387,7 +400,7 @@
 
 ## **FINAL RECOMMENDATION FOR SSIP**
 
-**Go with BEST TIER (₹1,50,000 total funding)**
+**Go with BEST TIER (₹2,00,000 total funding)**
 
 **Why:**
 ✅ Professional appearance for demo

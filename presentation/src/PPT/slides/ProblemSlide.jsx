@@ -9,7 +9,7 @@ const ProblemSlide = () => (
             </div>
             <h2 className="animate-fade-up delay-1 gradient-text-primary" style={{
                 fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 'clamp(32px, 4vw, 50px)',
-                 marginBottom: '8px', letterSpacing: '-0.02em',
+                marginBottom: '8px', letterSpacing: '-0.02em',
             }}>
                 The Communication Crisis
             </h2>
@@ -20,11 +20,11 @@ const ProblemSlide = () => (
                 background: 'var(--alert-light)', borderRadius: '12px', padding: '20px 24px',
                 borderLeft: '4px solid var(--alert)', marginBottom: '24px',
             }}>
-                <div style={{ fontSize: '17px', fontWeight: 700, color: 'var(--charcoal)', marginBottom: '12px' }}>Voices from the Ground</div>
+                <div style={{ fontSize: '17px', fontWeight: 700, color: 'var(--charcoal)', marginBottom: '12px' }}>Anticipated Pain Points for Validation</div>
                 {[
-                    { quote: 'In hospitals, I have to write on paper. Doctors don\'t wait. It\'s stressful.', who: '— Deaf college student, Surat' },
-                    { quote: 'Interpreters are rarely available. A portable device would help daily communication.', who: '— Special educator, Gujarat' },
-                    { quote: 'Mobile apps are inconvenient because hands are busy while signing.', who: '— Deaf NGO volunteer (name withheld)' },
+                    { quote: 'In hospitals, I have to write on paper. Doctors don\'t wait. It\'s stressful.', who: '— Expected Feedback: Deaf college students' },
+                    { quote: 'Interpreters are rarely available. A portable device would help daily communication.', who: '— Expected Feedback: Special educators' },
+                    { quote: 'Mobile apps are inconvenient because hands are busy while signing.', who: '— Expected Feedback: Deaf NGO volunteers' },
                 ].map((t, i) => (
                     <div key={i} style={{ marginBottom: i < 2 ? '10px' : 0, paddingBottom: i < 2 ? '10px' : 0, borderBottom: i < 2 ? '1px solid rgba(239,68,68,0.15)' : 'none' }}>
                         <p style={{ fontSize: '17px', color: 'var(--charcoal)', lineHeight: 1.5, fontStyle: 'italic', marginBottom: '2px' }}>
@@ -44,8 +44,9 @@ const ProblemSlide = () => (
                     { num: '27K+', label: 'Born Deaf Every Year', sub: 'WHO / Drishti IAS, 2021', color: '#A78BFA' },
                 ].map((s, i) => (
                     <div key={i} className="glass-card"
-                    style={{ padding: '20px', textAlign: 'center',
-                    }}>
+                        style={{
+                            padding: '20px', textAlign: 'center',
+                        }}>
                         <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '39px', color: s.color, lineHeight: 1 }}>
                             {s.num}
                         </div>
@@ -113,7 +114,7 @@ const ProblemSlide = () => (
 
             <p className="animate-fade-up delay-6" style={{ fontSize: '14px', color: 'var(--slate)', marginTop: '16px' }}>
                 Sources: Census 2011, NSS 76th Round (2018), MOSPI (2021), WHO World Report on Hearing (2021), ISLRTC, RCI India
-                <br />Estimated figures — exact counts vary by definition. Testimonies from field interviews in Surat.
+                <br />Estimated figures — exact counts vary by definition. Testimonies are anticipated feedback for upcoming field validations.
             </p>
         </div>
     </div>

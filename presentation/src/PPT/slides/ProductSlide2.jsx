@@ -5,7 +5,7 @@ const ProductSlide2 = () => (
         <div style={{ padding: 'var(--slide-py) var(--slide-px)', maxWidth: '1200px', margin: '0 auto', paddingBottom: '100px' }}>
 
             <div className="mb-2 animate-fade-up delay-1">
-                <span style={{ color: 'var(--teal)', textShadow: 'var(--shadow-glow)', fontSize: '16px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Slide 7 of 12</span>
+                <span style={{ color: 'var(--teal)', textShadow: 'var(--shadow-glow)', fontSize: '16px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>Slide 8 of 12</span>
             </div>
             <h2 className="animate-fade-up delay-1 gradient-text-primary" style={{
                 fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 'clamp(32px, 4vw, 50px)',
@@ -18,7 +18,7 @@ const ProductSlide2 = () => (
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px', marginBottom: '20px' }}>
 
                 {/* Hardware Stack */}
-                <div className="animate-fade-up delay-3" style={{ background: '#fff', borderRadius: '12px', padding: '24px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-md)' }}>
+                <div className="animate-fade-up delay-3 flex flex-col justify-center" style={{ background: '#fff', borderRadius: '12px', padding: '24px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-md)' }}>
                     <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '19px', color: 'var(--charcoal)', marginBottom: '16px' }}>
                         Hardware Stack
                     </h3>
@@ -41,7 +41,7 @@ const ProductSlide2 = () => (
                 </div>
 
                 {/* Prototype Results */}
-                <div className="animate-fade-up delay-4" style={{ background: '#fff', borderRadius: '12px', padding: '24px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-md)' }}>
+                <div className="animate-fade-up delay-4 flex flex-col justify-center" style={{ background: '#fff', borderRadius: '12px', padding: '24px', border: '1px solid var(--border)', boxShadow: 'var(--shadow-md)' }}>
                     <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '19px', color: 'var(--charcoal)', marginBottom: '16px' }}>
                         Current Prototype Results
                     </h3>
@@ -62,30 +62,28 @@ const ProductSlide2 = () => (
                     ))}
                 </div>
 
-                {/* Live Demo CTA */}
-                <div className="animate-fade-up delay-5" style={{
-                    background: 'linear-gradient(135deg, var(--teal-dark), var(--teal))',
-                    borderRadius: '12px', padding: '24px', color: '#fff',
-                    display: 'flex', flexDirection: 'column', justifyContent: 'center',
-                }}>
-                    <div style={{ fontSize: '44px', marginBottom: '12px', textAlign: 'center' }}>🎬</div>
-                    <h3 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '22px', textAlign: 'center', marginBottom: '12px' }}>
-                        Live Demo
-                    </h3>
-                    <p style={{ fontSize: '16px', textAlign: 'center', opacity: 0.85, lineHeight: 1.5, marginBottom: '16px' }}>
-                        Watch as we sign "Hello, my name is Dwarkesh" and the glasses speak it aloud in real-time.
-                    </p>
-                    <div style={{
-                        padding: '10px', borderRadius: '8px', textAlign: 'center',
-                        background: 'rgba(255,255,255,0.15)', fontSize: '15px', fontWeight: 600,
-                    }}>
-                        2–5 Min Live Demonstration
-                    </div>
-                    <div style={{ marginTop: '16px', padding: '12px', borderRadius: '8px', background: 'rgba(255,255,255,0.1)' }}>
-                        <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.8)', textAlign: 'center', marginBottom: 0 }}>
-                            Validated by 15 deaf users in Surat — 80% expressed daily usage intent
-                        </p>
-                    </div>
+            </div>
+
+            {/* Product Image */}
+            <div className="animate-fade-up delay-5 mb-6 w-full flex flex-col items-center justify-center p-8" style={{
+                background: '#fff',
+                borderRadius: '16px',
+                border: '1px solid var(--border)',
+                boxShadow: 'var(--shadow-lg)',
+                position: 'relative'
+            }}>
+                <div className="absolute top-6 right-6">
+                    <span className="px-4 py-2 text-sm font-bold rounded-full" style={{ background: 'rgba(0,180,216,0.1)', color: 'var(--teal)', border: '1px solid rgba(0,180,216,0.2)' }}>PROTOTYPE V2</span>
+                </div>
+                <img
+                    src="/ar_glasses_product.png"
+                    alt="AR Glasses Product"
+                    className="w-full h-auto object-contain hover:scale-[1.02] transition-transform duration-700"
+                    style={{ filter: 'drop-shadow(0 20px 30px rgba(0,0,0,0.15))', maxHeight: '500px' }}
+                />
+                <div className="mt-8 text-center w-full pt-6" style={{ borderTop: '1px solid var(--border)' }}>
+                    <h4 style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '24px', color: 'var(--charcoal)' }}>Vision-to-Speech Core</h4>
+                    <p style={{ fontSize: '16px', color: 'var(--slate)', marginTop: '6px' }}>Sleek, lightweight, and completely hands-free assistive hardware.</p>
                 </div>
             </div>
 

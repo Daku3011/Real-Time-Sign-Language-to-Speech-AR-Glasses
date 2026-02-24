@@ -11,7 +11,7 @@ const AskSlide = () => (
                 fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 'clamp(36px, 4.5vw, 56px)',
                 marginBottom: '8px', letterSpacing: '-0.02em',
             }}>
-                The Ask
+                Ask
             </h2>
             <div className="animate-fade-up delay-2" style={{ width: '48px', height: '3px', background: 'var(--gold)', borderRadius: '2px', marginBottom: '28px' }} />
 
@@ -28,7 +28,7 @@ const AskSlide = () => (
                     ₹2,00,000
                 </div>
                 <p style={{ fontSize: '21px', color: 'var(--charcoal)', maxWidth: '500px', margin: '0 auto', lineHeight: 1.5, fontWeight: 500 }}>
-                    6-month runway to deliver 5 wearable prototypes, a filed patent, and 20+ user testimonials
+                    6-month runway to deliver 2 wearable prototypes, a filed patent, and 20+ user testimonials
                 </p>
             </div>
 
@@ -45,8 +45,8 @@ const AskSlide = () => (
                         Projected Spend Allocation
                     </h3>
                     {[
-                        { item: 'Hardware Prototypes (2 units)', amt: '₹75,000', pct: 37.5, color: 'var(--teal)', textShadow: '0 0 1px rgba(0,180,216,0.3)', deliverable: '2 working wearable devices' },
-                        { item: 'IP Filing & Patent', amt: '₹40,000', pct: 20, color: 'var(--gold)', deliverable: 'Patent application filed' },
+                        { item: 'Hardware Prototypes (2 units)', amt: '₹60,000', pct: 30, color: 'var(--teal)', textShadow: '0 0 1px rgba(0,180,216,0.3)', deliverable: '2 working wearable devices' },
+                        { item: 'IP Filing & Patent', amt: '₹55,000', pct: 27.5, color: 'var(--gold)', deliverable: 'Patent application filed' },
                         { item: 'ML Training & Data Collection', amt: '₹30,000', pct: 15, color: '#A78BFA', deliverable: '200-sign model at 90% accuracy' },
                         { item: 'User Testing & Field Trials', amt: '₹25,000', pct: 12.5, color: 'var(--success)', deliverable: '20+ user feedback reports' },
                         { item: '3D Printing & Manufacturing R&D', amt: '₹20,000', pct: 10, color: '#F59E0B', deliverable: 'Production-ready frame design' },
@@ -79,10 +79,10 @@ const AskSlide = () => (
                             Milestone-Linked Timeline
                         </h3>
                         {[
-                            { month: 'M1-2', milestone: 'Patent filed + first 2 prototypes built', color: 'var(--teal)', textShadow: '0 0 1px rgba(0,180,216,0.3)' },
-                            { month: 'M3-4', milestone: '3 more prototypes + user testing begins', color: 'var(--gold)' },
+                            { month: 'M1-2', milestone: 'Patent filed + 2 prototypes built', color: 'var(--teal)', textShadow: '0 0 1px rgba(0,180,216,0.3)' },
+                            { month: 'M3-4', milestone: 'User testing begins', color: 'var(--gold)' },
                             { month: 'M5-6', milestone: 'Field trials + ADIP application prep', color: 'var(--success)' },
-                            { month: 'M6', milestone: 'DEMO to SSIP panel — all 5 prototypes', color: '#EF4444' },
+                            { month: 'M6', milestone: 'DEMO to SSIP panel — 2 prototypes', color: '#EF4444' },
                         ].map((m, i) => (
                             <div key={i} className="flex items-start gap-4 mb-4">
                                 <div style={{
@@ -121,7 +121,7 @@ const AskSlide = () => (
             </div>
 
             {/* Closing Statement */}
-            <div className="animate-fade-up delay-6" style={{
+            {/* <div className="animate-fade-up delay-6" style={{
                 background: 'linear-gradient(135deg, rgba(0,180,216,0.08), rgba(0,180,216,0.02))',
                 borderRadius: '12px', padding: '24px', textAlign: 'center',
                 border: '1px solid rgba(0,180,216,0.2)', boxShadow: 'var(--shadow-md)'
@@ -136,7 +136,7 @@ const AskSlide = () => (
                     <span style={{ color: 'var(--border)' }}>|</span>
                     <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '20px', color: 'var(--teal)', textShadow: '0 0 1px rgba(0,180,216,0.3)' }}>Team Inno8</span>
                 </div>
-            </div>
+            </div> */}
         </div>
     </div>
 );

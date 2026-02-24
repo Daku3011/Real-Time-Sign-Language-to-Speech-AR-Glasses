@@ -22,8 +22,10 @@ def draw_hud(img, label, confidence, fps, state_info=None, mode="SIGNING",
              sentence_info=None, ai_status=None):
     h, w, _ = img.shape
     
-    # Mode indicator / Top bar
-    cv2.rectangle(img, (0, 0), (w, 40), (20, 20, 20), -1)
+    # Mode indicator / Top bar (Transparent Overlay)
+    overlay = img.copy()
+    cv2.rectangle(overlay, (0, 0), (w, 50), (15, 15, 15), -1)
+    cv2.addWeighted(overlay, 0.85, img, 0.15, 0, img)
     color = (0, 255, 0)  # Default Neon Green
     
     if mode == "READING":
@@ -36,12 +38,12 @@ def draw_hud(img, label, confidence, fps, state_info=None, mode="SIGNING",
     elif state_info and state_info.get("state") == "COUNTDOWN":
         color = (0, 255, 255)
 
-    cv2.putText(img, f"MODE: {mode} | FPS: {int(fps)}", (20, 30), 
+    cv2.putText(img, f"MODE: {mode} | FPS: {int(fps)}", (20, 35), 
                 cv2.FONT_HERSHEY_SIMPLEX, 0.7, color, 2)
     
     # Futuristic HUD Corners
     length = 50
-    t = 2
+    t = 3
     cv2.line(img, (20, 20), (20 + length, 20), color, t)
     cv2.line(img, (20, 20), (20, 20 + length), color, t)
     cv2.line(img, (w - 20, 20), (w - 20 - length, 20), color, t)
@@ -74,6 +76,8 @@ def draw_hud(img, label, confidence, fps, state_info=None, mode="SIGNING",
             bw = int(200 * confidence)
             cv2.rectangle(img, (w//2 - 100, h - 80), (w//2 + 100, h - 70), (50, 50, 50), -1)
             cv2.rectangle(img, (w//2 - 100, h - 80), (w//2 - 100 + bw, h - 70), color, -1)
+            cv2.putText(img, f"{int(confidence*100)}%", (w//2 + 110, h - 70), 
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 1)
 
         # --- Sentence assembly text bar ---
         if sentence_info:
@@ -81,21 +85,32 @@ def draw_hud(img, label, confidence, fps, state_info=None, mode="SIGNING",
             sa_state = sentence_info.get("state", "IDLE")
             if assembled_text:
                 # Dark background bar for sentence
-                cv2.rectangle(img, (10, 45), (w - 10, 90), (30, 30, 30), -1)
-                cv2.rectangle(img, (10, 45), (w - 10, 90), color, 1)
+                overlay_sentence = img.copy()
+                cv2.rectangle(overlay_sentence, (10, 60), (w - 10, 110), (20, 20, 20), -1)
+                cv2.addWeighted(overlay_sentence, 0.8, img, 0.2, 0, img)
+                cv2.rectangle(img, (10, 60), (w - 10, 110), color, 1)
+                
                 # State indicator dot
                 dot_color = (0, 255, 0) if sa_state == "TYPING" else \
                             (0, 255, 255) if sa_state == "WORD_PAUSE" else \
                             (0, 165, 255) if sa_state == "SENTENCE_PAUSE" else (100, 100, 100)
-                cv2.circle(img, (25, 68), 6, dot_color, -1)
+                
+                # Pulsing effect for dot
+                radius = 6 if int(time.time() * 4) % 2 == 0 else 8
+                cv2.circle(img, (30, 85), radius, dot_color, -1)
+                
                 # Text
                 display_text = assembled_text[-50:]  # Last 50 chars
-                cv2.putText(img, display_text, (40, 75),
-                            cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 255), 2)
+                cv2.putText(img, display_text, (50, 92),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.75, (255, 255, 255), 2)
             
     elif mode == "READING":
         # Scanning zone for OCR
         cv2.rectangle(img, (w//4, h//4), (3*w//4, 3*h//4), color, 2)
+        # Scanline animation
+        scan_y = h//4 + int((h//2) * ((time.time() * 0.5) % 1.0))
+        cv2.line(img, (w//4, scan_y), (3*w//4, scan_y), (0, 255, 0), 2)
+        
         cv2.putText(img, "ALIGN TEXT IN BOX & PRESS 't'", (w//2-200, h//4-20), 
                     cv2.FONT_HERSHEY_SIMPLEX, 0.6, color, 2)
 
@@ -131,7 +146,9 @@ def draw_hud(img, label, confidence, fps, state_info=None, mode="SIGNING",
 
             # Show last result
             if result:
-                cv2.rectangle(img, (10, h - 110), (w - 10, h - 50), (30, 30, 30), -1)
+                overlay_ai = img.copy()
+                cv2.rectangle(overlay_ai, (10, h - 110), (w - 10, h - 50), (20, 20, 20), -1)
+                cv2.addWeighted(overlay_ai, 0.85, img, 0.15, 0, img)
                 cv2.rectangle(img, (10, h - 110), (w - 10, h - 50), color, 1)
                 cv2.putText(img, "AI:", (20, h - 80), cv2.FONT_HERSHEY_SIMPLEX, 0.6, color, 2)
                 display_result = result[:60]

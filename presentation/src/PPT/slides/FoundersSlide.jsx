@@ -45,7 +45,7 @@ const FoundersSlide = () => (
             {/* Header */}
             <div className="mb-2 animate-fade-up delay-1">
                 <span style={{ color: 'var(--teal)', textShadow: 'var(--shadow-glow)', fontSize: '16px', fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase' }}>
-                    Slide 9 of 12
+                    Slide 2 of 12
                 </span>
             </div>
             <h2 className="animate-fade-up delay-1 gradient-text-primary" style={{

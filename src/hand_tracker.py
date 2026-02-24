@@ -74,9 +74,54 @@ class HandTracker:
             self.results = self.hands.process(img_rgb)
 
             if self.results.multi_hand_landmarks:
-                for hand_lms in self.results.multi_hand_landmarks:
+                for i, hand_lms in enumerate(self.results.multi_hand_landmarks):
                     if draw:
                         self.mp_draw.draw_landmarks(img, hand_lms, self.mp_hands.HAND_CONNECTIONS)
+                        
+                        # Calculate bounding box
+                        h, w, c = img.shape
+                        x_min, y_min = w, h
+                        x_max, y_max = 0, 0
+                        for lm in hand_lms.landmark:
+                            cx, cy = int(lm.x * w), int(lm.y * h)
+                            if cx < x_min: x_min = cx
+                            if cx > x_max: x_max = cx
+                            if cy < y_min: y_min = cy
+                            if cy > y_max: y_max = cy
+                            
+                        padding = 20
+                        x_min, y_min = max(0, x_min - padding), max(0, y_min - padding)
+                        x_max, y_max = min(w, x_max + padding), min(h, y_max + padding)
+                        
+                        # Draw futuristic bounding box
+                        length = 20
+                        t = 3
+                        color = (0, 255, 255) # Cyan/Yellow aesthetic
+                        
+                        # Top-left
+                        cv2.line(img, (x_min, y_min), (x_min + length, y_min), color, t)
+                        cv2.line(img, (x_min, y_min), (x_min, y_min + length), color, t)
+                        # Top-right
+                        cv2.line(img, (x_max, y_min), (x_max - length, y_min), color, t)
+                        cv2.line(img, (x_max, y_min), (x_max, y_min + length), color, t)
+                        # Bottom-left
+                        cv2.line(img, (x_min, y_max), (x_min + length, y_max), color, t)
+                        cv2.line(img, (x_min, y_max), (x_min, y_max - length), color, t)
+                        # Bottom-right
+                        cv2.line(img, (x_max, y_max), (x_max - length, y_max), color, t)
+                        cv2.line(img, (x_max, y_max), (x_max, y_max - length), color, t)
+                        
+                        # Handedness label
+                        if self.results.multi_handedness:
+                            handedness_dict = self.results.multi_handedness[i].classification[0]
+                            label = handedness_dict.label
+                            score = handedness_dict.score
+                            text = f"{label} [{score:.2f}]"
+                            
+                            (text_w, text_h), _ = cv2.getTextSize(text, cv2.FONT_HERSHEY_PLAIN, 1.2, 2)
+                            cv2.rectangle(img, (x_min, y_min - 25), (x_min + text_w + 10, y_min), color, cv2.FILLED)
+                            cv2.putText(img, text, (x_min + 5, y_min - 5), cv2.FONT_HERSHEY_PLAIN, 1.2, (0, 0, 0), 2)
+
             return img
         except Exception as e:
             logger.error(f"Error in find_hands: {e}")

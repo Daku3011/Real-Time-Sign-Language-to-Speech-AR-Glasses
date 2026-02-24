@@ -16,6 +16,7 @@ const TOTAL_SLIDES = 12;
 
 const SLIDE_TITLES = [
     'Introduction',
+    'Organisation & Team',
     'Business Overview',
     'Strategy',
     'Competitive Analysis',
@@ -23,7 +24,6 @@ const SLIDE_TITLES = [
     'Product Details',
     'Product Tech & Demo',
     'Market Analysis',
-    'Organisation & Team',
     'Financial Analysis',
     'Funding Request',
     'Exit',
@@ -63,6 +63,7 @@ const SSIPPitchDeck = () => {
 
     const slides = [
         <TitleSlide key="t" />,
+        <FoundersSlide key="f" />,
         <BusinessOverviewSlide key="bo" />,
         <StrategySlide key="strat" />,
         <CompetitiveSlide key="comp" />,
@@ -70,7 +71,6 @@ const SSIPPitchDeck = () => {
         <SolutionSlide key="s1" />,
         <ProductSlide2 key="s2" />,
         <MarketAnalysisSlide key="ma" />,
-        <FoundersSlide key="f" />,
         <FinancialsSlide key="fi" />,
         <AskSlide key="a" />,
         <ExitSlide key="e" />
